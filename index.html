@@ -695,32 +695,38 @@
 
   /* ——— Mobile ——— */
   @media (max-width: 900px) {
+    html, body { overflow-x: hidden; max-width: 100%; }
     body { padding-top: 56px; }
-    .wrap { padding: 0 20px; }
-    h1.main { font-size: 40px; }
+    .wrap { padding: 0 20px; max-width: 100%; }
+    h1.main { font-size: 36px; line-height: 1.1; }
     .main-sub { font-size: 15px; margin-bottom: 40px; }
     .meta { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 10px; }
     .section-divider h3 { font-size: 16px; }
     .slide {
       aspect-ratio: auto;
-      padding: 72px 28px 36px;
-      min-height: 540px;
+      padding: 72px 22px 36px;
+      min-height: 0;
       margin-bottom: 32px;
+      overflow-x: hidden;
     }
+    /* Allow grid/flex children to shrink below their intrinsic content width */
+    .slide *, .body, .two > *, .three > *, .stat-grid > *, .m-stack > * { min-width: 0; }
+    .slide p, .slide h2, .slide h3, .slide h4, .slide h5, .slide div { overflow-wrap: anywhere; }
     .wordmark { top: 20px; left: 20px; font-size: 14px; }
     .corner-mark { top: 20px; right: 20px; font-size: 9px; }
     .slide > .eyebrow { margin-top: 4px; }
     .m-stack { grid-template-columns: 1fr !important; gap: 20px !important; }
-    .slide h2 { font-size: 32px; line-height: 1.1; }
-    .slide h2.small { font-size: 24px; }
-    .slide .sub { font-size: 14.5px; }
+    .slide h2 { font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; }
+    .slide h2.small { font-size: 22px; }
+    .slide .sub { font-size: 14px; line-height: 1.5; }
     .three { grid-template-columns: 1fr; gap: 24px; }
     .two { grid-template-columns: 1fr; gap: 32px; }
+    .body { flex-direction: column; }
     .stat-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat { padding: 18px 20px 18px 20px; }
+    .stat { padding: 18px 16px 18px 16px; }
     .stat:nth-child(3) { border-left: none; padding-left: 0; border-top: 1px solid var(--ink-rule); padding-top: 20px; margin-top: 10px; }
     .slide.paper .stat:nth-child(3) { border-color: var(--paper-rule); }
-    .stat .k { font-size: 32px; }
+    .stat .k { font-size: 28px; }
     .phases { grid-template-columns: 1fr; gap: 28px; }
     .phase { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; padding-bottom: 20px; border-bottom: 1px solid var(--ink-rule); }
     .phase:last-child { border-bottom: none; }
@@ -733,14 +739,31 @@
     .mrow .val-head { font-size: 22px; }
     .mrow .label-head { font-size: 15px; }
     .mrow .label-head small { display: block; margin-left: 0; margin-top: 2px; }
-    .etable { font-size: 12px; display: block; overflow-x: auto; white-space: nowrap; }
-    .cover-hero .brand { font-size: 96px; }
-    .cover-hero .tagline { font-size: 20px; }
-    .cover-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+    /* Stack editorial table rows on mobile so nothing scrolls horizontally */
+    .etable, .etable tbody, .etable tr, .etable td { display: block; width: 100% !important; white-space: normal; }
+    .etable tr { border-bottom: 1px dotted var(--ink-rule); padding: 10px 0; }
+    .slide.paper .etable tr { border-color: var(--paper-rule); }
+    .etable td { padding: 2px 0; border-bottom: none; font-size: 13px; line-height: 1.5; }
+    .etable td.name { font-size: 15px; padding-bottom: 4px; }
+    .etable td.tight { font-size: 12.5px; }
+    /* Horizontal bar chart: name on top, bar + value below */
+    .hbar-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 6px 12px; padding: 14px 0; }
+    .hbar-row .name { grid-column: 1 / -1; }
+    .hbar-row .val { font-size: 13px; }
+    /* Cover hero scales down */
+    .cover-hero .brand { font-size: 84px; }
+    .cover-hero .tagline { font-size: 18px; line-height: 1.4; }
+    .cover-meta { flex-direction: column; align-items: flex-start; gap: 8px; font-size: 10px; }
     .cover-meta .right { text-align: left; }
+    /* Inline-styled headings shrink — common pattern is style="font-size: NNpx" */
+    .slide [style*="font-size: 56px"] { font-size: 28px !important; line-height: 1.15 !important; }
+    .slide [style*="font-size: 26px"] { font-size: 20px !important; }
+    .slide [style*="font-size: 20px"] { font-size: 16px !important; }
     .topnav { padding: 12px 16px; }
     .topnav .right { gap: 12px; }
     .topnav a.nav-hide-mobile { display: none; }
+    /* References block padding shrinks on mobile */
+    .wrap > div[style*="padding: 28px 32px"] { padding: 22px 18px !important; }
   }
 
   /* ——— Print ——— */
