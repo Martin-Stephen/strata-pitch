@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Strata — the regulated retail rails for AU/NZ private credit. NZ-licensed, FMA-sandboxed, portable to AU MIT. The iCapital for a A$188B market with no iCapital." />
+<meta name="author" content="Martin van Blerk" />
+<meta name="theme-color" content="#0C0A08" />
+<meta name="robots" content="noindex, nofollow" />
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Strata — The iCapital of AU/NZ" />
+<meta property="og:description" content="Regulated retail rails for a A$188B private credit market. NZ MIS · FMA sandbox · AU MIT-portable. Pre-revenue, category-defining infrastructure." />
+<meta property="og:url" content="https://strata.nz" />
+<meta property="og:site_name" content="Strata" />
+<meta property="og:image" content="https://strata.nz/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Strata — The iCapital of AU/NZ" />
+<meta name="twitter:description" content="Regulated retail rails for a A$188B private credit market with no rails today." />
+<meta name="twitter:image" content="https://strata.nz/og.png" />
+
+<title>Strata — Regulated rails for AU/NZ private credit</title>
+
+<!-- Favicon — inline SVG for zero round-trip -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230C0A08'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23E5B463'/%3E%3C/svg%3E" />
+
+<!-- Plausible analytics (swap data-domain once live) -->
+<script defer data-domain="strata.nz" src="https://plausible.io/js/script.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Ink palette */
+    --ink: #0C0A08;
+    --ink-2: #141210;
+    --ink-3: #1C1A16;
+    --ink-rule: #2A2620;
+    --ink-mute: #6E6557;
+    --ink-text: #F5EEE0;
+    --ink-dim: #B8AE9A;
+
+    /* Paper palette */
+    --paper: #F5EEE0;
+    --paper-2: #ECE4D1;
+    --paper-rule: #D6CCB4;
+    --paper-ink: #1A1612;
+    --paper-mute: #6E6557;
+
+    /* Gold */
+    --gold: #B8923B;
+    --gold-soft: #C9A54A;
+    --gold-hi: #E5C470;
+    --gold-dim: #5C4A1F;
+
+    /* Secondary */
+    --teal: #5B8A91;
+    --burgundy: #8A3D3D;
+    --forest: #4A5E3A;
+  }
+
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #0A0907;
+    color: var(--ink-text);
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+    letter-spacing: -0.011em;
+  }
+  body { padding: 48px 0 120px; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+
+  /* Top matter */
+  .meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 20px; margin-bottom: 48px;
+    border-bottom: 1px solid var(--ink-rule);
+    color: var(--ink-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .meta strong { font-weight: 500; color: var(--gold-hi); letter-spacing: 0.12em; }
+  h1.main {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 76px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin: 0 0 24px;
+    color: var(--ink-text);
+  }
+  h1.main em { font-style: italic; color: var(--gold-hi); font-weight: 400; }
+  .main-sub {
+    font-family: 'Geist', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+    max-width: 800px;
+    margin: 0 0 72px;
+  }
+
+  /* Slide frame */
+  .slide {
+    position: relative;
+    background: var(--ink);
+    border: 1px solid var(--ink-rule);
+    border-radius: 6px;
+    padding: 88px 72px 64px;
+    margin-bottom: 56px;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+    overflow: visible;
+  }
+  .slide.paper { background: var(--paper); color: var(--paper-ink); border-color: var(--paper-rule); }
+  .slide.paper .eyebrow { color: var(--gold-dim); }
+  .slide.paper h2 { color: var(--paper-ink); }
+  .slide.paper .sub, .slide.paper .note { color: var(--paper-mute); }
+  .slide.paper .rule { background: var(--paper-rule); }
+
+  .corner-mark {
+    position: absolute; top: 28px; right: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .slide.paper .corner-mark { color: var(--paper-mute); }
+  .wordmark {
+    position: absolute; top: 28px; left: 32px;
+    font-family: 'Fraunces', serif;
+    font-size: 16px; font-weight: 500; letter-spacing: -0.01em;
+    color: var(--gold-hi);
+  }
+  .slide.paper .wordmark { color: var(--gold-dim); }
+  .wordmark .dot { display: inline-block; width: 6px; height: 6px; border-radius: 999px; background: var(--gold); margin: 0 10px 2px 0; vertical-align: middle; }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-hi);
+    margin-bottom: 22px;
+  }
+  .slide h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 54px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 18px;
+    max-width: 1000px;
+  }
+  .slide h2 em { font-style: italic; color: var(--gold-hi); font-weight: 400; }
+  .slide h2 strong { font-weight: 500; color: var(--gold-hi); }
+  .slide .sub {
+    font-family: 'Geist', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+    max-width: 900px;
+    margin: 0 0 40px;
+  }
+  .rule { height: 1px; background: var(--ink-rule); margin: 24px 0; }
+  .rule-gold { height: 1px; background: var(--gold); opacity: 0.6; margin: 24px 0; width: 56px; }
+  .note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* Slide body flex */
+  .body { flex: 1; display: flex; align-items: stretch; justify-content: stretch; }
+
+  /* Three-column editorial */
+  .three {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 44px;
+    width: 100%;
+    padding-top: 12px;
+  }
+  .three .col h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0 0 14px;
+    color: var(--ink-text);
+  }
+  .slide.paper .three .col h4 { color: var(--paper-ink); }
+  .three .col p {
+    font-size: 14px; line-height: 1.6; color: var(--ink-dim);
+    margin: 0; font-weight: 400;
+  }
+  .slide.paper .three .col p { color: var(--paper-mute); }
+  .three .col .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em;
+    color: var(--gold-hi); margin-bottom: 14px;
+  }
+  .slide.paper .three .col .num { color: var(--gold-dim); }
+
+  /* Stat blocks */
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    width: 100%; padding-top: 24px;
+  }
+  .stat {
+    padding: 24px 32px 24px 0;
+    border-left: 1px solid var(--ink-rule);
+    padding-left: 32px;
+  }
+  .stat:first-child { border-left: none; padding-left: 0; }
+  .slide.paper .stat { border-color: var(--paper-rule); }
+  .stat .k {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 46px;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    color: var(--ink-text);
+    margin-bottom: 10px;
+  }
+  .stat .k em { font-style: italic; color: var(--gold-hi); font-weight: 400; }
+  .slide.paper .stat .k { color: var(--paper-ink); }
+  .slide.paper .stat .k em { color: var(--gold-dim); }
+  .stat .label {
+    font-size: 12px; color: var(--ink-dim); line-height: 1.5;
+    max-width: 200px;
+  }
+  .slide.paper .stat .label { color: var(--paper-mute); }
+  .stat .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+
+  /* Two-column layout */
+  .two { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; width: 100%; align-items: start; }
+
+  /* ——— FT-style horizontal bar chart ——— */
+  .hbars { padding-top: 12px; }
+  .hbar-row {
+    display: grid;
+    grid-template-columns: 170px 1fr 130px;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px dotted var(--ink-rule);
+    gap: 18px;
+  }
+  .slide.paper .hbar-row { border-color: var(--paper-rule); }
+  .hbar-row:last-child { border-bottom: none; }
+  .hbar-row .name {
+    font-size: 13px; font-weight: 500; color: var(--ink-text);
+    letter-spacing: -0.005em;
+  }
+  .hbar-row .name small {
+    display: block; font-family: 'JetBrains Mono', monospace;
+    font-weight: 400; font-size: 10px; color: var(--ink-mute);
+    margin-top: 2px; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .slide.paper .hbar-row .name { color: var(--paper-ink); }
+  .slide.paper .hbar-row .name small { color: var(--paper-mute); }
+  .hbar { height: 14px; background: var(--ink-2); position: relative; border-radius: 1px; }
+  .slide.paper .hbar { background: var(--paper-2); }
+  .hbar .fill {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    background: linear-gradient(90deg, var(--gold-dim) 0%, var(--gold) 100%);
+  }
+  .hbar .fill.muted {
+    background: linear-gradient(90deg, #3A342C 0%, #6E6557 100%);
+  }
+  .hbar .fill.teal {
+    background: linear-gradient(90deg, #2F4A4F 0%, var(--teal) 100%);
+  }
+  .hbar .fill.burg {
+    background: linear-gradient(90deg, #4A1F1F 0%, var(--burgundy) 100%);
+  }
+  .hbar-row .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--gold-hi);
+    text-align: right;
+    letter-spacing: 0.02em;
+  }
+  .slide.paper .hbar-row .val { color: var(--gold-dim); }
+  .chart-head {
+    display: flex; justify-content: space-between;
+    padding-bottom: 10px; border-bottom: 1px solid var(--ink-rule);
+    margin-bottom: 8px;
+  }
+  .slide.paper .chart-head { border-color: var(--paper-rule); }
+  .chart-head .name, .chart-head .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+  }
+  .slide.paper .chart-head .name, .slide.paper .chart-head .val { color: var(--paper-mute); }
+
+  /* Callout block */
+  .pull {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 30px; line-height: 1.2;
+    letter-spacing: -0.018em;
+    color: var(--gold-hi);
+    padding: 14px 0 14px 28px;
+    border-left: 2px solid var(--gold);
+    max-width: 560px;
+  }
+  .slide.paper .pull { color: var(--gold-dim); }
+  .pull em { font-style: italic; color: var(--ink-text); font-weight: 400; }
+  .slide.paper .pull em { color: var(--paper-ink); }
+
+  /* Editorial table */
+  .etable {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px; font-weight: 400;
+  }
+  .etable th {
+    text-align: left; font-family: 'JetBrains Mono', monospace;
+    font-weight: 500; font-size: 10px; color: var(--ink-mute);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0 16px 12px 0; border-bottom: 1px solid var(--ink-rule);
+  }
+  .slide.paper .etable th { color: var(--paper-mute); border-color: var(--paper-rule); }
+  .etable td {
+    padding: 14px 16px 14px 0;
+    border-bottom: 1px dotted var(--ink-rule);
+    color: var(--ink-text);
+    vertical-align: top;
+  }
+  .slide.paper .etable td { color: var(--paper-ink); border-color: var(--paper-rule); }
+  .etable td.name {
+    font-weight: 500; font-family: 'Fraunces', serif; font-size: 16px;
+    color: var(--gold-hi);
+  }
+  .slide.paper .etable td.name { color: var(--gold-dim); }
+  .etable td small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-mute);
+    display: block; margin-top: 2px;
+  }
+  .slide.paper .etable td small { color: var(--paper-mute); }
+  .etable td.tight { color: var(--ink-dim); font-size: 13px; line-height: 1.4; }
+  .slide.paper .etable td.tight { color: var(--paper-mute); }
+
+  /* The stack diagram */
+  .stack {
+    width: 100%;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .stack-band {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .stack-band .side {
+    padding: 14px 22px 14px 0;
+    border-right: 1px solid var(--ink-rule);
+    text-align: right;
+  }
+  .stack-band.paper-mode .side { border-color: var(--paper-rule); }
+  .stack-band .side .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 6px;
+  }
+  .stack-band .side h5 {
+    font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; margin: 0;
+    letter-spacing: -0.01em; color: var(--ink-text);
+  }
+  .slide.paper .stack-band .side h5 { color: var(--paper-ink); }
+  .slide.paper .stack-band .side .tag { color: var(--paper-mute); }
+  .stack-band .items {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; padding-left: 22px;
+  }
+  .stack-band .cell {
+    padding: 16px 14px;
+    border-right: 1px dotted var(--ink-rule);
+    font-size: 12.5px; line-height: 1.35; color: var(--ink-text);
+  }
+  .slide.paper .stack-band .cell { border-color: var(--paper-rule); color: var(--paper-ink); }
+  .stack-band .cell:last-child { border-right: none; }
+  .stack-band.hero {
+    background: linear-gradient(90deg, rgba(184,146,59,0.08), rgba(184,146,59,0.02));
+    border: 1px solid rgba(184,146,59,0.45);
+    border-radius: 3px;
+    margin: 6px 0;
+  }
+  .slide.paper .stack-band.hero {
+    background: linear-gradient(90deg, rgba(184,146,59,0.12), rgba(184,146,59,0.04));
+    border-color: rgba(184,146,59,0.55);
+  }
+  .stack-band.hero .side h5 { color: var(--gold-hi); }
+  .slide.paper .stack-band.hero .side h5 { color: var(--gold-dim); }
+  .stack-band.hero .cell { color: var(--ink-text); font-weight: 500; }
+  .slide.paper .stack-band.hero .cell { color: var(--paper-ink); }
+
+  /* Phase timeline */
+  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding-top: 20px; }
+  .phase {
+    padding: 0 32px 0 0;
+    border-right: 1px solid var(--ink-rule);
+  }
+  .phase:last-child { border-right: none; }
+  .phase { padding-left: 32px; }
+  .phase:first-child { padding-left: 0; }
+  .slide.paper .phase { border-color: var(--paper-rule); }
+  .phase .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; color: var(--gold-hi);
+    margin-bottom: 14px;
+  }
+  .slide.paper .phase .num { color: var(--gold-dim); }
+  .phase h3 {
+    font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px;
+    letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 10px;
+    color: var(--ink-text);
+  }
+  .slide.paper .phase h3 { color: var(--paper-ink); }
+  .phase .status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .phase p { font-size: 13.5px; line-height: 1.6; color: var(--ink-dim); margin: 0 0 12px; }
+  .slide.paper .phase p { color: var(--paper-mute); }
+  .phase ul { list-style: none; padding: 0; margin: 16px 0 0; }
+  .phase ul li {
+    font-size: 12.5px; color: var(--ink-text); line-height: 1.5;
+    padding-left: 14px; position: relative; margin-bottom: 6px;
+  }
+  .phase ul li::before {
+    content: '—'; position: absolute; left: 0; color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .slide.paper .phase ul li { color: var(--paper-ink); }
+
+  /* Market scale bars */
+  .marketchart { width: 100%; padding-top: 10px; }
+  .mrow { padding: 18px 0 14px; border-bottom: 1px dotted var(--ink-rule); }
+  .mrow:last-child { border-bottom: none; }
+  .slide.paper .mrow { border-color: var(--paper-rule); }
+  .mrow .ml {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .mrow .label-head {
+    font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400;
+    color: var(--ink-text);
+  }
+  .slide.paper .mrow .label-head { color: var(--paper-ink); }
+  .mrow .label-head small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; color: var(--ink-mute);
+    margin-left: 14px; text-transform: uppercase;
+  }
+  .slide.paper .mrow .label-head small { color: var(--paper-mute); }
+  .mrow .val-head {
+    font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300;
+    color: var(--gold-hi); letter-spacing: -0.02em;
+  }
+  .slide.paper .mrow .val-head { color: var(--gold-dim); }
+  .mrow .mbar {
+    height: 6px; background: var(--ink-2); position: relative;
+  }
+  .slide.paper .mrow .mbar { background: var(--paper-2); }
+  .mrow .mbar .mfill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--gold); }
+  .mrow .mnote {
+    font-size: 12px; color: var(--ink-dim); margin-top: 8px; line-height: 1.5;
+  }
+  .slide.paper .mrow .mnote { color: var(--paper-mute); }
+
+  /* Cover brand */
+  .cover-hero {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+  }
+  .cover-hero .brand {
+    font-family: 'Fraunces', serif; font-weight: 300;
+    font-size: 200px; letter-spacing: -0.055em; line-height: 0.92;
+    margin: 0;
+  }
+  .cover-hero .brand em { font-style: italic; color: var(--gold-hi); font-weight: 400; }
+  .cover-hero .tagline {
+    font-family: 'Fraunces', serif; font-weight: 300;
+    font-size: 28px; letter-spacing: -0.02em; line-height: 1.3;
+    color: var(--ink-dim);
+    max-width: 720px;
+    margin: 24px 0 0;
+  }
+  .cover-hero .tagline em { font-style: italic; color: var(--gold-hi); font-weight: 400; }
+  .cover-meta {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-top: 20px; border-top: 1px solid var(--ink-rule);
+    margin-top: auto;
+  }
+  .cover-meta .left, .cover-meta .right {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .cover-meta .right { text-align: right; }
+
+  /* Section divider */
+  .section-divider {
+    display: flex; align-items: center; gap: 20px;
+    margin: 56px 0 40px; padding-top: 16px;
+  }
+  .section-divider .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold-hi);
+  }
+  .section-divider .line { flex: 1; height: 1px; background: var(--ink-rule); }
+  .section-divider h3 {
+    font-family: 'Fraunces', serif; font-weight: 300;
+    font-size: 22px; margin: 0; letter-spacing: -0.015em;
+    color: var(--ink-text);
+  }
+
+  /* Footer */
+  .deckfooter {
+    text-align: center; color: var(--ink-mute);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-top: 80px;
+  }
+
+  /* ——— Progress bar ——— */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 2px; background: transparent;
+    z-index: 100;
+  }
+  .progress-bar .fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-hi) 100%);
+    transition: width 0.12s ease-out;
+  }
+
+  /* ——— Top nav ——— */
+  .topnav {
+    position: fixed; top: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 32px; z-index: 90;
+    background: rgba(10, 9, 7, 0.72); backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .topnav .brand {
+    font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500;
+    letter-spacing: -0.01em; color: var(--gold-hi);
+  }
+  .topnav .brand .dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 999px;
+    background: var(--gold); margin-right: 8px; vertical-align: middle;
+  }
+  .topnav .right { display: flex; align-items: center; gap: 20px; }
+  .topnav a, .topnav button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-dim); text-decoration: none; background: none;
+    border: none; cursor: pointer; padding: 0;
+    transition: color 0.2s ease;
+  }
+  .topnav a:hover, .topnav button:hover { color: var(--gold-hi); }
+  .topnav .cta {
+    padding: 8px 16px; border: 1px solid var(--gold);
+    border-radius: 2px; color: var(--gold-hi);
+  }
+  .topnav .cta:hover { background: var(--gold); color: var(--ink); }
+
+  html { scroll-padding-top: 96px; scroll-behavior: smooth; }
+  body { padding-top: 88px; }
+
+  /* ——— Scroll reveal ——— */
+  .reveal {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .reveal.in {
+    opacity: 1; transform: translateY(0);
+  }
+  /* Fallback: if JS hasn't tagged anything within 800ms, reveal everything.
+     Also, users with prefers-reduced-motion get everything visible immediately. */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+  html.no-js .reveal,
+  body.reveal-all .reveal { opacity: 1; transform: none; }
+
+  /* ——— Counter ——— */
+  [data-counter] { font-variant-numeric: tabular-nums; }
+
+  /* ——— Marquee ——— */
+  .marquee {
+    overflow: hidden;
+    padding: 24px 0;
+    margin: 32px 0;
+    border-top: 1px solid var(--ink-rule);
+    border-bottom: 1px solid var(--ink-rule);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+  .marquee-track {
+    display: flex; gap: 72px; align-items: center;
+    animation: scroll-left 42s linear infinite;
+    width: max-content;
+  }
+  .marquee-item {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: 22px; letter-spacing: -0.01em;
+    color: var(--ink-dim); white-space: nowrap;
+  }
+  .marquee-item em { font-style: italic; color: var(--gold-hi); }
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ——— Paper grain + film grain ——— */
+  .slide::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(255,255,255,0.02) 0, transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(229,180,99,0.025) 0, transparent 50%);
+    border-radius: inherit;
+    z-index: 0;
+  }
+  /* Stack slide content above the grain overlay without breaking absolute-positioned corners */
+  .slide > .eyebrow,
+  .slide > h2,
+  .slide > .sub,
+  .slide > .body,
+  .slide > .rule,
+  .slide > .rule-gold,
+  .slide > .note,
+  .slide > p { position: relative; z-index: 1; }
+
+  /* ——— Stat counters emphasized ——— */
+  .stat .k, .mrow .val-head, .cover-hero .brand {
+    font-feature-settings: 'lnum', 'tnum', 'ss01';
+  }
+
+  /* ——— Link preview / booking button styling ——— */
+  .book-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 14px 22px; margin-top: 12px;
+    background: var(--gold); color: var(--ink);
+    border: none; border-radius: 2px; text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    font-weight: 600;
+  }
+  .book-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -6px rgba(229,180,99,0.45);
+  }
+  .book-cta svg { width: 12px; height: 12px; fill: currentColor; }
+
+  /* ——— Acquirer mode toggles ———
+     ?mode=acquirer swaps investor-specific slides (Roadmap, Ask) for acquirer-specific ones
+     (Acquirer Fit, Valuation/Strategic Premium). Shared slides render in both modes. */
+  .acquirer-only { display: none; }
+  body.mode-acquirer .investor-only { display: none; }
+  body.mode-acquirer .acquirer-only { display: flex; }
+  /* Section dividers follow their slide */
+  body.mode-acquirer .section-divider.investor-only { display: none; }
+  body.mode-acquirer .section-divider.acquirer-only { display: flex; }
+
+  /* Subtle mode badge in top nav */
+  .mode-badge {
+    display: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 4px 8px; border: 1px solid var(--gold-dim);
+    color: var(--gold-hi); border-radius: 2px;
+  }
+  body.mode-acquirer .mode-badge { display: inline-block; }
+
+  /* ——— Mobile ——— */
+  @media (max-width: 900px) {
+    body { padding-top: 56px; }
+    .wrap { padding: 0 20px; }
+    h1.main { font-size: 40px; }
+    .main-sub { font-size: 15px; margin-bottom: 40px; }
+    .meta { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 10px; }
+    .section-divider h3 { font-size: 16px; }
+    .slide {
+      aspect-ratio: auto;
+      padding: 40px 28px 36px;
+      min-height: 540px;
+      margin-bottom: 32px;
+    }
+    .slide h2 { font-size: 32px; line-height: 1.1; }
+    .slide h2.small { font-size: 24px; }
+    .slide .sub { font-size: 14.5px; }
+    .three { grid-template-columns: 1fr; gap: 24px; }
+    .two { grid-template-columns: 1fr; gap: 32px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat { padding: 18px 20px 18px 20px; }
+    .stat:nth-child(3) { border-left: none; padding-left: 0; border-top: 1px solid var(--ink-rule); padding-top: 20px; margin-top: 10px; }
+    .slide.paper .stat:nth-child(3) { border-color: var(--paper-rule); }
+    .stat .k { font-size: 32px; }
+    .phases { grid-template-columns: 1fr; gap: 28px; }
+    .phase { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; padding-bottom: 20px; border-bottom: 1px solid var(--ink-rule); }
+    .phase:last-child { border-bottom: none; }
+    .slide.paper .phase { border-color: var(--paper-rule); }
+    .stack-band { grid-template-columns: 1fr; }
+    .stack-band .side { border-right: none; text-align: left; padding: 10px 0 4px; }
+    .stack-band .items { grid-template-columns: repeat(2, 1fr); padding-left: 0; }
+    .stack-band .cell { font-size: 11.5px; padding: 10px 8px; }
+    .mrow .ml { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .mrow .val-head { font-size: 22px; }
+    .mrow .label-head { font-size: 15px; }
+    .mrow .label-head small { display: block; margin-left: 0; margin-top: 2px; }
+    .etable { font-size: 12px; display: block; overflow-x: auto; white-space: nowrap; }
+    .cover-hero .brand { font-size: 96px; }
+    .cover-hero .tagline { font-size: 20px; }
+    .cover-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cover-meta .right { text-align: left; }
+    .topnav { padding: 12px 16px; }
+    .topnav .right { gap: 12px; }
+    .topnav a.nav-hide-mobile { display: none; }
+  }
+
+  /* ——— Print ——— */
+  @media print {
+    @page { size: A4 landscape; margin: 0; }
+    html, body {
+      background: var(--ink) !important;
+      padding: 0 !important; margin: 0;
+      color: var(--ink-text) !important;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .progress-bar, .topnav, .meta, .section-divider, .deckfooter, .marquee,
+    h1.main, .main-sub { display: none !important; }
+    .wrap { max-width: none; padding: 0; margin: 0; }
+    .slide {
+      break-after: page; page-break-after: always;
+      break-inside: avoid; page-break-inside: avoid;
+      box-shadow: none; margin: 0; border: none;
+      border-radius: 0;
+      min-height: 0;
+      padding: 44px 56px 36px;
+    }
+    .slide:last-child { break-after: auto; page-break-after: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .slide h2 { font-size: 32px; line-height: 1.1; }
+    .slide .sub { font-size: 13px; }
+    .cover-hero .brand { font-size: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress-bar" aria-hidden="true"><div class="fill" id="progressFill"></div></div>
+
+<!-- Sticky top nav -->
+<nav class="topnav">
+  <div class="brand"><span class="dot"></span>STRATA <span class="mode-badge">Acquirer view</span></div>
+  <div class="right">
+    <a href="#problem" class="nav-hide-mobile">Problem</a>
+    <a href="#market" class="nav-hide-mobile">Market</a>
+    <a href="#traction" class="nav-hide-mobile">Traction</a>
+    <a href="#team" class="nav-hide-mobile">Team</a>
+    <a href="#ask" class="nav-hide-mobile">Ask</a>
+    <a class="cta" href="https://cal.com/strata/intro" target="_blank" rel="noopener">Book 30 min →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ========== TOP MATTER ========== -->
+  <div class="meta">
+    <span><strong>STRATA</strong> · DESIGN SYSTEM v1</span>
+    <span>INSTITUTIONAL EDITORIAL · INK × GOLD × CREAM</span>
+    <span>2026 · MARTIN × NICK × BROKER</span>
+  </div>
+
+  <h1 class="main">The <em>Stripe</em> of regulated real-world assets.</h1>
+  <p class="main-sub">Design system + hero diagrams for the Strata infrastructure pitch. Strata doesn't run funds — we run the rails that funds run on. First issuer: residential property. Next: a NZ private credit manager. Then: any income-producing asset.</p>
+
+
+  <!-- ========== SLIDE 1 — COVER / BRAND HERO ========== -->
+  <div class="section-divider">
+    <span class="num">01 · Cover</span>
+    <div class="line"></div>
+    <h3>The brand statement</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">01 / COVER</div>
+    <div class="cover-hero">
+      <h1 class="brand">Strata<em>.</em></h1>
+      <p class="tagline">The <em>iCapital of AU/NZ</em> — regulated retail rails for a <em>$200B+ private credit market</em> with zero tokenised infrastructure today.</p>
+    </div>
+    <div class="cover-meta">
+      <div class="left">NZ MIS · PIE-WRAPPED · AU MIT-PORTABLE</div>
+      <div class="right">MARTIN VAN BLERK · FOUNDER</div>
+    </div>
+  </div>
+
+
+  <!-- ========== SLIDE 1.5 — THE PROBLEM ========== -->
+  <div class="section-divider" id="problem">
+    <span class="num">02 · Problem</span>
+    <div class="line"></div>
+    <h3>Three stakeholders, one broken middle</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">02 / PROBLEM</div>
+    <div class="eyebrow">The problem</div>
+    <h2>Everyone in private credit is <em>losing money</em> to the missing middle.</h2>
+    <p class="sub">Retail wants yield but can't access it. Credit managers want retail AUM but can't reach it compliantly. Platforms want alts product but can't build the rails. Nobody in AU/NZ has closed the gap.</p>
+    <div class="body" style="padding-top: 20px;">
+      <div class="three">
+        <div class="col">
+          <div class="num">— Retail investor</div>
+          <h4>Locked out of the best yield.</h4>
+          <p>$4% term deposits or $7–8% private credit — they know the difference. Today the answer is either $500K wholesale minimum, a clunky SMSF structure, or an ASX LIT with thin UX. No $100 mobile-native access. Squirrel has a waiting list.</p>
+        </div>
+        <div class="col">
+          <div class="num">— Credit manager</div>
+          <h4>Can't reach retail without breaking themselves.</h4>
+          <p>8 AU mid-tier managers ($100M–$2B AUM) have the product and want retail inflows. Building compliant retail distribution takes 18+ months, $1M+ legal, and full-time platform staff. REP 820 just raised the bar higher.</p>
+        </div>
+        <div class="col">
+          <div class="num">— Channel / wealth platform</div>
+          <h4>Demands alt product they can't source.</h4>
+          <p>HUB24 and Praemium have grown alternatives FUA 20–25% p.a. for three years. Advisers are asking for fractional private credit. Nobody in AU/NZ has built the rails to supply it. They're buying partners (HUB24/Reach) to fill the gap.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rule-gold" style="margin-top: 28px;"></div>
+    <p class="note">ASIC REP 820 NOV 2025 · A&amp;M PRIVATE DEBT REVIEW 2025 · HUB24 / REACH STAKE · PRAEMIUM / STROPRO</p>
+  </div>
+
+
+  <!-- ========== SLIDE 2 — THE THESIS ========== -->
+  <div class="section-divider">
+    <span class="num">03 · Thesis</span>
+    <div class="line"></div>
+    <h3>The one-sentence pitch</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">03 / THESIS</div>
+    <div class="eyebrow">The thesis</div>
+    <div class="body" style="flex-direction: column; justify-content: center;">
+      <h2>AU/NZ private credit is a <strong>$200B market</strong> with <em>no retail-first distribution infrastructure.</em> Every global comp proves this category is winner-takes-most.</h2>
+      <p class="sub" style="margin-top: 12px;">iCapital is worth US$7.5B. Moonfare is €3.8B AUM. Securitize raised at category-leading multiples. AU/NZ has the regulatory moat, the mid-tier credit managers, and the retail demand — but no built rails. We built them.</p>
+      <div class="rule-gold"></div>
+      <p class="note">ICAPITAL US$7.5B · MOONFARE €3.8B · SECURITIZE $47M STRATEGIC · GLOBAL PC US$3T → US$5T BY 2030</p>
+    </div>
+  </div>
+
+
+  <!-- ========== SLIDE 3 — THE STACK ========== -->
+  <div class="section-divider">
+    <span class="num">04 · Stack</span>
+    <div class="line"></div>
+    <h3>What Strata actually is</h3>
+  </div>
+  <div class="slide paper">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">04 / STACK</div>
+    <div class="eyebrow">The stack</div>
+    <h2>A <em>single regulated pipe</em> between any income-producing asset and any distribution channel.</h2>
+    <p class="sub">The hard parts — master trust, PIE tax engine, tokenised units, secondary market, compliance plumbing — are already built. Sponsors bring assets. Channels bring users. Strata carries the flow.</p>
+
+    <div class="body">
+      <div class="stack">
+        <!-- channels -->
+        <div class="stack-band paper-mode">
+          <div class="side">
+            <div class="tag">Layer 01</div>
+            <h5>Channels</h5>
+          </div>
+          <div class="items">
+            <div class="cell">Sharesies<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">930K members</small></div>
+            <div class="cell">HUB24 · Praemium<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">platform wraps</small></div>
+            <div class="cell">Stake · neobrokers<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">retail pipes</small></div>
+            <div class="cell">KiwiSaver · super<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">$4T+ pool</small></div>
+            <div class="cell">Direct &amp; wealth<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">brand + advisers</small></div>
+          </div>
+        </div>
+
+        <!-- Strata hero -->
+        <div class="stack-band hero paper-mode">
+          <div class="side">
+            <div class="tag">Layer 02 · The Asset</div>
+            <h5>Strata</h5>
+          </div>
+          <div class="items">
+            <div class="cell">Master trust<br>+ sub-trust engine</div>
+            <div class="cell">Tokenised unit<br>ownership ledger</div>
+            <div class="cell">Primary + secondary<br>marketplace</div>
+            <div class="cell">Distribution +<br>multi-rate PIE tax</div>
+            <div class="cell">KYC/AML · audit<br>compliance layer</div>
+          </div>
+        </div>
+
+        <!-- issuers -->
+        <div class="stack-band paper-mode">
+          <div class="side">
+            <div class="tag">Layer 03</div>
+            <h5>Issuers</h5>
+          </div>
+          <div class="items">
+            <div class="cell">NZ credit managers<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">phase 01 · wedge</small></div>
+            <div class="cell">AU mid-tier managers<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">phase 02 · $100M–$2B</small></div>
+            <div class="cell">CRE &amp; bridging<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">property-backed debt</small></div>
+            <div class="cell">Business lending<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">corporate + SME</small></div>
+            <div class="cell">Specialty credit<br><small style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--paper-mute); letter-spacing:0.08em;">infra · trade · warehouse</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rule" style="margin-top: 28px;"></div>
+    <p class="note">NZ MIS · FMA SANDBOX DEC 2025 – NOV 2027 · PORTABLE TO AU MIT · SG VCC</p>
+  </div>
+
+
+  <!-- ========== PRODUCT ========== -->
+  <div class="section-divider">
+    <span class="num">05 · Product</span>
+    <div class="line"></div>
+    <h3>The rails, running</h3>
+  </div>
+  <div class="slide paper">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">05 / PRODUCT</div>
+    <div class="eyebrow">Product</div>
+    <h2>Not a deck. <em>A live platform</em> — built, audited, retail-ready.</h2>
+    <p class="sub">Issuer admin · investor marketplace · tokenised unit registry · compliance dashboard. The hard build is done. The next conversion is signing the first external issuer onto the rails.</p>
+
+    <div class="body" style="padding-top: 12px;">
+      <div class="two">
+        <div>
+          <div class="note" style="color: var(--gold-dim); margin-bottom: 14px;">Issuer console</div>
+          <!-- Placeholder: drop a 16:10 PNG of your Strata admin here -->
+          <div style="aspect-ratio: 16/10; background: linear-gradient(135deg, #1A1815 0%, #2B2721 100%); border: 1px solid var(--paper-rule); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 6px;">
+              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
+            </div>
+            <div style="text-align: center; color: var(--gold-hi); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;">
+              [ADMIN SCREENSHOT GOES HERE]<br><span style="color: var(--ink-mute); font-size: 10px;">export from Strata · 1920×1200 · PNG</span>
+            </div>
+          </div>
+          <p style="font-size: 12.5px; color: var(--paper-mute); line-height: 1.55; margin: 14px 0 0;">Fund onboarding · unit issuance · NAV feeds · distribution schedule · investor register · audit log.</p>
+        </div>
+        <div>
+          <div class="note" style="color: var(--gold-dim); margin-bottom: 14px;">Investor marketplace</div>
+          <!-- Placeholder: drop a 16:10 PNG of your marketplace/wallet UI here -->
+          <div style="aspect-ratio: 16/10; background: linear-gradient(135deg, #1A1815 0%, #2B2721 100%); border: 1px solid var(--paper-rule); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 6px;">
+              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
+            </div>
+            <div style="text-align: center; color: var(--gold-hi); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;">
+              [MARKETPLACE SCREENSHOT GOES HERE]<br><span style="color: var(--ink-mute); font-size: 10px;">export from retail app · 1920×1200 · PNG</span>
+            </div>
+          </div>
+          <p style="font-size: 12.5px; color: var(--paper-mute); line-height: 1.55; margin: 14px 0 0;">Browse · invest from $100 · monthly distributions · secondary market · wallet + tax statements.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rule" style="margin-top: 24px;"></div>
+    <p class="note" style="color: var(--paper-mute);">BUILT BY MIQUIDO · $1.5M PLATFORM · $700K LEGAL · 24 MONTHS R&amp;D</p>
+  </div>
+
+
+  <!-- ========== SLIDE 4 — PHASED ROLLOUT ========== -->
+  <div class="section-divider">
+    <span class="num">06 · Phasing</span>
+    <div class="line"></div>
+    <h3>What we sell, in order</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">06 / PHASING</div>
+    <div class="eyebrow">Phased rollout</div>
+    <h2>One infrastructure. <em>Three asset classes.</em> Launched in order of lowest risk to highest upside.</h2>
+    <div class="rule" style="margin: 32px 0;"></div>
+    <div class="body">
+      <div class="phases">
+        <div class="phase">
+          <div class="num">Phase 01</div>
+          <div class="status" style="color: var(--gold-hi);">Next 90 days · first MoU</div>
+          <h3>NZ credit wedge.</h3>
+          <p>Land one NZ-licensed credit manager (PCG, First AM, or a boutique CRE debt fund). Their PIE-wrapped fund plugs into Strata; retail access at $100 tickets via Snowball Effect + a direct Strata front-end.</p>
+          <ul>
+            <li>Strata earns setup + SaaS + bps + txn</li>
+            <li>Issuer owns credit risk · Strata owns rails</li>
+            <li>Snowball distribution fastest route (3–6mo)</li>
+            <li>Sharesies self-select as 12–18mo parallel track</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="num">Phase 02</div>
+          <div class="status">6–18 months · AU mid-tier</div>
+          <h3>AU private credit scale.</h3>
+          <p>Revolution AM (just listed PCIT Sept 2025), Rixon, Zagga, Pallas, Merricks, MaxCap. Strata ports to AU MIT — same architecture. Target 3–5 live issuers; $10–50M AUA.</p>
+          <ul>
+            <li>Mid-tier managers ($100M–$2B AUM)</li>
+            <li>REP 820 tailwind — they need compliant rails</li>
+            <li>NZ MIS → AU MIT architectural mapping by MERW</li>
+            <li>Praemium / HUB24 adviser-channel option</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="num">Phase 03</div>
+          <div class="status" style="color: var(--ink-dim);">Horizon · the platform</div>
+          <h3>Category rails.</h3>
+          <p>Tokenisation is the end-state (Securitize, Ondo, Hamilton Lane proving it). Strata becomes the regulated AU/NZ local wrapper that global tokenisation stacks plug into — and that retail channels plug out of.</p>
+          <ul>
+            <li>iCapital US$7.5B proves the infrastructure thesis</li>
+            <li>10+ issuers · $500M+ AUA · multi-jurisdiction</li>
+            <li>Composable with on-chain RWA rails</li>
+            <li>Network compounds: issuers ↔ users ↔ channels</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== SLIDE 5 — YIELD COMPARISON (PROPERTY VS CREDIT) ========== -->
+  <div class="section-divider">
+    <span class="num">07 · Yield</span>
+    <div class="line"></div>
+    <h3>Why credit is Phase 02</h3>
+  </div>
+  <div class="slide paper">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">07 / YIELD</div>
+    <div class="eyebrow">Why credit managers need us</div>
+    <h2>Credit already pays <strong>1.5–2×</strong> term deposits. <em>The missing piece is retail rails</em> — tokenised, fractional, with a real secondary market.</h2>
+
+    <div class="body" style="padding-top: 20px;">
+      <div class="two">
+        <div>
+          <div class="chart-head">
+            <span class="name">Retail income product</span>
+            <span class="val">Net yield p.a.</span>
+          </div>
+          <div class="hbars">
+            <div class="hbar-row">
+              <div class="name">Bank term deposit<small>1-year NZ/AU · benchmark</small></div>
+              <div class="hbar"><div class="fill muted" style="width: 33%;"></div></div>
+              <div class="val">~4.0%</div>
+            </div>
+            <div class="hbar-row">
+              <div class="name">NZX equity dividend<small>broad-market ETF</small></div>
+              <div class="hbar"><div class="fill muted" style="width: 38%;"></div></div>
+              <div class="val">~4.5%</div>
+            </div>
+            <div class="hbar-row">
+              <div class="name">Squirrel Monthly Income<small>NZ · only retail credit at scale</small></div>
+              <div class="hbar"><div class="fill teal" style="width: 56%;"></div></div>
+              <div class="val">~5–7%</div>
+            </div>
+            <div class="hbar-row">
+              <div class="name">La Trobe 12-month<small>AU · $12B AUM · mortgage-backed</small></div>
+              <div class="hbar"><div class="fill" style="width: 62%;"></div></div>
+              <div class="val">~6.3%</div>
+            </div>
+            <div class="hbar-row">
+              <div class="name">Revolution PCIT<small>AU · listed Sept 2025 · senior secured</small></div>
+              <div class="hbar"><div class="fill" style="width: 70%;"></div></div>
+              <div class="val">~7.4%</div>
+            </div>
+            <div class="hbar-row">
+              <div class="name">Metrics MXT<small>AU · ASX · $2.2B · RBA + 3.25%</small></div>
+              <div class="hbar"><div class="fill" style="width: 75%;"></div></div>
+              <div class="val">~7.8%</div>
+            </div>
+            <div class="hbar-row">
+              <div class="name">Qualitas QRI<small>AU · ASX · CRE debt</small></div>
+              <div class="hbar"><div class="fill" style="width: 79%;"></div></div>
+              <div class="val">~8.0%</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="pull" style="margin-bottom: 26px;">
+            "Credit managers have the <em>product</em>.  We have the <em>rails</em>. They don't compete — they plug in."
+          </div>
+          <h4 style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; margin: 0 0 10px; color: var(--paper-ink); letter-spacing: -0.015em;">Why a credit manager runs on Strata.</h4>
+          <p style="font-size: 13.5px; color: var(--paper-mute); line-height: 1.6; margin: 0 0 16px;">La Trobe, Metrics and Qualitas each spent years building their own retail distribution and secondary listings. The next five credit managers won't — they'll plug into Strata. Lower tech spend · tokenised units · built-in secondary market · NZ + AU retail in one integration.</p>
+          <div class="rule-gold"></div>
+          <p class="note" style="color: var(--paper-mute);">Tokenised fractional retail private credit in AU/NZ · category effectively vacant</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== SLIDE 6 — MARKET SCALE ========== -->
+  <div class="section-divider" id="market">
+    <span class="num">08 · Market</span>
+    <div class="line"></div>
+    <h3>The TAM nesting</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">08 / MARKET</div>
+    <div class="eyebrow">Market</div>
+    <h2>A growing market. <em>Empty retail rails.</em> Strata owns the position nobody else is building.</h2>
+
+    <div class="body" style="padding-top: 28px;">
+      <div class="marketchart">
+        <div class="mrow">
+          <div class="ml">
+            <div class="label-head">Global private credit AUM <small>US$3T → US$5T by 2030 · Morgan Stanley · Preqin</small></div>
+            <div class="val-head">US$3.0T</div>
+          </div>
+          <div class="mbar"><div class="mfill" style="width: 100%;"></div></div>
+          <div class="mnote">Fastest-growing institutional asset class. US$13.3B already tokenised (Keyrock 2026) — 61% of all tokenised RWA. The end-state is decided; the local wrapper is not.</div>
+        </div>
+        <div class="mrow">
+          <div class="ml">
+            <div class="label-head">AU private credit market <small>ASIC REP 820 · A&amp;M 2025 Review</small></div>
+            <div class="val-head">A$188B</div>
+          </div>
+          <div class="mbar"><div class="mfill" style="width: 23%;"></div></div>
+          <div class="mnote">Metrics + La Trobe dominate &gt;A$50B. 8–10 mid-tier managers ($100M–$2B AUM) need retail distribution they can't build alone. REP 820 gives Strata the compliance tailwind.</div>
+        </div>
+        <div class="mrow">
+          <div class="ml">
+            <div class="label-head">AU + NZ super / KiwiSaver pool <small>private-asset-eligible allocation</small></div>
+            <div class="val-head">$4.1T</div>
+          </div>
+          <div class="mbar"><div class="mfill" style="width: 85%;"></div></div>
+          <div class="mnote">AU super $4T · NZ KiwiSaver $110B. Both regulators (APRA, MBIE) unlocking private-asset allocation. Strata-wrapped PIE credit funds are member-choice-ready.</div>
+        </div>
+        <div class="mrow">
+          <div class="ml">
+            <div class="label-head">NZ retail private credit today <small>only Squirrel &amp; PCG · post-Harmoney exit</small></div>
+            <div class="val-head">~$1B</div>
+          </div>
+          <div class="mbar"><div class="mfill" style="width: 0.5%;"></div></div>
+          <div class="mnote">A desert. Du Val collapse (Aug 2024) made FMA cautious — favouring credible rails, not punishing them. Strata is the only NZ-licensed tokenised fractional platform.</div>
+        </div>
+        <div class="mrow">
+          <div class="ml">
+            <div class="label-head">Strata's near-term wedge <small>3–5 issuers · $10–50M AUA in 18 months</small></div>
+            <div class="val-head" style="color: var(--gold-hi);">$50M+</div>
+          </div>
+          <div class="mbar"><div class="mfill" style="width: 15%;"></div></div>
+          <div class="mnote" style="color: var(--gold-hi);">At 60 bps AUA + setup + SaaS → ~$1–2M ARR. Series A trigger. Path to $500M AUA in 3 years unlocks $3–5M ARR and infra-multiple exit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== SLIDE 7 — UNIT ECONOMICS ========== -->
+  <div class="section-divider">
+    <span class="num">09 · Economics</span>
+    <div class="line"></div>
+    <h3>Revenue as AUA grows</h3>
+  </div>
+  <div class="slide paper">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">09 / ECONOMICS</div>
+    <div class="eyebrow">Rails economics</div>
+    <h2>Four revenue streams per issuer. <em>Zero credit, asset or origination risk.</em> Lower clip, lower risk, compounding scale — the Stripe pattern.</h2>
+
+    <div class="body" style="padding-top: 28px;">
+      <div style="width: 100%;">
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="tag" style="color: var(--gold-dim);">01 · Setup</div>
+            <div class="k">$25<em>–100k</em></div>
+            <div class="label">One-off integration fee per issuer. Sub-trust spun up, tokens minted, channel mapped.</div>
+          </div>
+          <div class="stat">
+            <div class="tag" style="color: var(--gold-dim);">02 · SaaS</div>
+            <div class="k">$2<em>–10k</em>/mo</div>
+            <div class="label">Platform licence per issuer. Dashboards, reporting, ledger, compliance, support.</div>
+          </div>
+          <div class="stat">
+            <div class="tag" style="color: var(--gold-dim);">03 · AUA fee</div>
+            <div class="k">30–95 <em>bps</em></div>
+            <div class="label">Annual on administered assets. Revenue tied to AUA, not user behaviour. Compounds.</div>
+          </div>
+          <div class="stat">
+            <div class="tag" style="color: var(--gold-dim);">04 · Secondary</div>
+            <div class="k">15–40 <em>bps</em></div>
+            <div class="label">Transaction fee on each secondary market trade. Pure marginal margin.</div>
+          </div>
+        </div>
+        <div class="rule" style="margin: 36px 0 20px;"></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 40px;">
+          <p class="note" style="color: var(--paper-mute); margin: 0;">Worked example · 5 issuers × $100M AUA × 60 bps + setup + SaaS = <strong style="color: var(--gold-dim);">~$3.5M ARR</strong> at steady state. 10 issuers × $250M = <strong style="color: var(--gold-dim);">~$17M ARR</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== 90-DAY PLAN (investor mode only) ========== -->
+  <div class="section-divider investor-only">
+    <span class="num">10 · Roadmap</span>
+    <div class="line"></div>
+    <h3>Next 90 days — concrete, conservative</h3>
+  </div>
+  <div class="slide paper investor-only">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">10 / ROADMAP</div>
+    <div class="eyebrow">90-day plan</div>
+    <h2>Three hard milestones. <em>Each de-risks</em> the next round of capital.</h2>
+    <p class="sub">Honest test: if none of these lands by day 90, the right call is to exit the IP and licence — not raise. If two of three land, the seed round is justifiable and we execute.</p>
+
+    <div class="body" style="padding-top: 28px;">
+      <table class="etable">
+        <thead>
+          <tr>
+            <th style="width: 18%;">Weeks</th>
+            <th style="width: 30%;">Milestone</th>
+            <th style="width: 26%;">How we get there</th>
+            <th style="width: 26%;">Success marker</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Weeks 1–3</td>
+            <td class="tight" style="color: var(--paper-ink);">Deck &amp; 1-pager refreshed around the REP 820 tailwind narrative</td>
+            <td class="tight">Rewrite · visualise · pressure-test with Nick &amp; broker</td>
+            <td class="tight">Warm-intro asset ready to send</td>
+          </tr>
+          <tr>
+            <td class="name">Weeks 3–8</td>
+            <td class="tight" style="color: var(--paper-ink);">Credit-manager outreach — 8 conversations</td>
+            <td class="tight">Revolution AM · Rixon · Zagga · Pallas · Merricks · Pengana · PCG · First AM</td>
+            <td class="tight"><strong style="color: var(--gold-dim);">2 signed non-binding MoUs</strong></td>
+          </tr>
+          <tr>
+            <td class="name">Weeks 4–10</td>
+            <td class="tight" style="color: var(--paper-ink);">Distribution pathway locked</td>
+            <td class="tight">Sharesies formal intro · Snowball parallel · Kernel/InvestNow backups</td>
+            <td class="tight"><strong style="color: var(--gold-dim);">1 distribution LoI</strong></td>
+          </tr>
+          <tr>
+            <td class="name">Weeks 6–12</td>
+            <td class="tight" style="color: var(--paper-ink);">Capital conversations</td>
+            <td class="tight">Investors: Icehouse, GD1, Hillfarrance, Movac, Blackbird NZ. Acquirers: Sharesies, Squirrel, Simplicity, one AU credit manager</td>
+            <td class="tight"><strong style="color: var(--gold-dim);">2 serious second meetings</strong></td>
+          </tr>
+          <tr>
+            <td class="name">Day 90</td>
+            <td class="tight" style="color: var(--paper-ink);">Go/no-go decision</td>
+            <td class="tight">Score the three milestones honestly</td>
+            <td class="tight">≥2 hit → raise · ≤1 hit → exit the IP</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ========== PARTNERS MARQUEE ========== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item"><em>MinterEllisonRuddWatts</em> · Legal architecture</span>
+      <span class="marquee-item"><em>Miquido</em> · Platform engineering</span>
+      <span class="marquee-item"><em>The Compliance Company</em> · Independent review</span>
+      <span class="marquee-item"><em>DDB Group</em> · Brand</span>
+      <span class="marquee-item"><em>FMA</em> · Sandbox-engaged</span>
+      <span class="marquee-item"><em>Animoca Brands</em> · Pixelmon acquirer (founder)</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item"><em>MinterEllisonRuddWatts</em> · Legal architecture</span>
+      <span class="marquee-item"><em>Miquido</em> · Platform engineering</span>
+      <span class="marquee-item"><em>The Compliance Company</em> · Independent review</span>
+      <span class="marquee-item"><em>DDB Group</em> · Brand</span>
+      <span class="marquee-item"><em>FMA</em> · Sandbox-engaged</span>
+      <span class="marquee-item"><em>Animoca Brands</em> · Pixelmon acquirer (founder)</span>
+    </div>
+  </div>
+
+  <!-- ========== TEAM ========== -->
+  <div class="section-divider" id="team">
+    <span class="num">11 · Team</span>
+    <div class="line"></div>
+    <h3>Who built this</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">11 / TEAM</div>
+    <div class="eyebrow">Founder</div>
+    <h2>Martin van Blerk. <em>Built and sold once.</em> Invested $2.2M of his own exit capital to build Strata.</h2>
+
+    <div class="body" style="padding-top: 28px;">
+      <div class="two">
+        <div>
+          <div class="note" style="color: var(--gold-hi); margin-bottom: 16px;">Track record</div>
+          <div style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; color: var(--ink-text); margin-bottom: 12px;">Pixelmon — gaming IP</div>
+          <p style="font-size: 14px; color: var(--ink-dim); line-height: 1.6; margin: 0 0 20px;">$100M+ in primary sales in the first 24 hours. Sold a controlling stake to a venture fund backed by Animoca Brands. Anime in production, two mobile games, 50K+ downloads. Built a consumer brand through a crisis and delivered an exit.</p>
+
+          <div class="rule-gold" style="margin: 16px 0 18px;"></div>
+
+          <div class="note" style="color: var(--gold-hi); margin-bottom: 12px;">What Strata has cost</div>
+          <p style="font-size: 14px; color: var(--ink-dim); line-height: 1.6; margin: 0;">$2.2M+ personal capital. 24 months of R&amp;D. First fintech the FMA sandboxed for tokenised fractional retail. All of the hard parts — legal, licence, platform, partners — already done.</p>
+        </div>
+        <div>
+          <div class="note" style="color: var(--gold-hi); margin-bottom: 16px;">What a seed round funds</div>
+          <table class="etable">
+            <tbody>
+              <tr><td class="name" style="width: 42%;">Head of BD</td><td class="tight">Credit-manager outreach lead — lands first 3 MoUs</td></tr>
+              <tr><td class="name">Compliance lead</td><td class="tight">MIS extension + AU MIT + REP 820 alignment</td></tr>
+              <tr><td class="name">Senior engineer</td><td class="tight">Credit-specific integration module · issuer admin portal</td></tr>
+              <tr><td class="name">Product / ops</td><td class="tight">Retail front-end for the first Strata-native issuer</td></tr>
+              <tr><td class="name">Founder (Martin)</td><td class="tight">Strategy · investor / acquirer conversations · partnerships</td></tr>
+            </tbody>
+          </table>
+          <div class="rule" style="margin: 20px 0;"></div>
+          <p class="note">RUNWAY TARGET: 18 MONTHS · 3–5 ISSUERS LIVE · $10–50M AUA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== COMPETITIVE LANDSCAPE ========== -->
+  <div class="section-divider">
+    <span class="num">12 · Landscape</span>
+    <div class="line"></div>
+    <h3>Where Strata sits in the global map</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">12 / LANDSCAPE</div>
+    <div class="eyebrow">Competitive landscape</div>
+    <h2>The category is <em>proven globally</em>. The AU/NZ slot is <em>empty.</em></h2>
+    <p class="sub">iCapital (US$7.5B), Moonfare (€3.8B AUM), Percent, Willow Wealth, Groundfloor have all validated the rails-for-alts thesis. Local AU/NZ incumbents are single-product issuers, not platforms. Strata is the only native rails candidate with a licence already issued.</p>
+
+    <div class="body" style="padding-top: 6px;">
+      <table class="etable">
+        <thead>
+          <tr>
+            <th style="width: 22%;">Company</th>
+            <th style="width: 18%;">What they are</th>
+            <th style="width: 25%;">Scale / valuation</th>
+            <th style="width: 35%;">Gap Strata fills</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">iCapital<small>US · adviser rails</small></td>
+            <td class="tight">Adviser platform for alts</td>
+            <td class="tight">US$7.5B valn · US$820M raise Jul 25</td>
+            <td class="tight">Not in AU/NZ · adviser-gated, not retail-direct</td>
+          </tr>
+          <tr>
+            <td class="name">Moonfare<small>EU · HNW platform</small></td>
+            <td class="tight">Feeder-fund platform</td>
+            <td class="tight">€3.8B AUM · Insight / Fidelity backed</td>
+            <td class="tight">€50K minimum — not retail · EU-focused</td>
+          </tr>
+          <tr>
+            <td class="name">Percent<small>US · credit marketplace</small></td>
+            <td class="tight">Direct-issuer rails for credit</td>
+            <td class="tight">US$1.68B funded since 2018</td>
+            <td class="tight">Accredited only · no AU/NZ licence path</td>
+          </tr>
+          <tr>
+            <td class="name">Willow Wealth<small>US · rails (ex-Yieldstreet)</small></td>
+            <td class="tight">Retail alts platform</td>
+            <td class="tight">US$11.7B AUM via partners</td>
+            <td class="tight">Direct-underwriting model failed — pivoted to pure rails (our model)</td>
+          </tr>
+          <tr>
+            <td class="name">Metrics &amp; La Trobe<small>AU · credit managers</small></td>
+            <td class="tight">Single-issuer ASX / unlisted</td>
+            <td class="tight">Metrics $16B+ · La Trobe $12B</td>
+            <td class="tight">Their own product, own distribution — not a platform. Compete with issuers, not with us.</td>
+          </tr>
+          <tr>
+            <td class="name">Squirrel<small>NZ · retail P2P</small></td>
+            <td class="tight">Originator + retail P2P</td>
+            <td class="tight">~NZ$1B lent historically</td>
+            <td class="tight">Own loan book only · no multi-issuer rails · investor queue exceeds supply</td>
+          </tr>
+          <tr>
+            <td class="name" style="color: var(--gold-hi);">Strata<small>AU/NZ · rails</small></td>
+            <td class="tight" style="color: var(--gold-hi);">Multi-issuer, MIS-licensed</td>
+            <td class="tight" style="color: var(--gold-hi);">Pre-revenue · $2.2M built · sandbox-engaged</td>
+            <td class="tight" style="color: var(--gold-hi);">The only candidate. Licence in hand, platform live, architecture portable to AU MIT.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ========== TRACTION SLIDE ========== -->
+  <div class="section-divider" id="traction">
+    <span class="num">13 · Traction</span>
+    <div class="line"></div>
+    <h3>What's already built, paid for, and regulator-engaged</h3>
+  </div>
+  <div class="slide paper">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">13 / TRACTION</div>
+    <div class="eyebrow">Traction · pre-revenue</div>
+    <h2>$2.2M already deployed. <em>NZ MIS licence in hand.</em> First fintech the FMA sandboxed for tokenised fractional retail — the regulatory moat is already ours.</h2>
+
+    <div class="body" style="padding-top: 20px;">
+      <div style="width: 100%;">
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="tag" style="color: var(--gold-dim);">Capital invested</div>
+            <div class="k">$2.2M<em>+</em></div>
+            <div class="label">Personal exit capital. 24 months R&amp;D. $700K legal + $1.5M platform build.</div>
+          </div>
+          <div class="stat">
+            <div class="tag" style="color: var(--gold-dim);">Regulatory</div>
+            <div class="k">NZ MIS<em> live</em></div>
+            <div class="label">Licensed scheme. FMA sandbox engagement — first fintech for tokenised fractional ownership.</div>
+          </div>
+          <div class="stat">
+            <div class="tag" style="color: var(--gold-dim);">Platform</div>
+            <div class="k">Retail<em>-ready</em></div>
+            <div class="label">Ledger · marketplace · wallets · distribution engine · tax engine · audit. Built by Miquido (250+ engineers, Google-certified).</div>
+          </div>
+          <div class="stat">
+            <div class="tag" style="color: var(--gold-dim);">Distribution in-flight</div>
+            <div class="k">3 paths<em> open</em></div>
+            <div class="label">Sharesies conversation · Snowball Effect path · direct Strata front-end.</div>
+          </div>
+        </div>
+        <div class="rule" style="margin: 32px 0 20px;"></div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+          <div>
+            <div class="note" style="color: var(--gold-dim); margin-bottom: 8px;">What a new entrant would have to replicate</div>
+            <p style="font-size: 13px; color: var(--paper-mute); line-height: 1.55; margin: 0;">~2 years legal (MERW) · ~$1M+ legal spend · ~$1.5M+ platform build · FMA sandbox engagement from scratch · master-trust + PIE architecture from first principles · Compliance Company audit · partner onboarding.</p>
+          </div>
+          <div>
+            <div class="note" style="color: var(--gold-dim); margin-bottom: 8px;">What Strata has in the bank today</div>
+            <p style="font-size: 13px; color: var(--paper-mute); line-height: 1.55; margin: 0;">All of the above — complete. The only thing unbuilt is the next conversion: first signed credit-manager MoU, first retail cohort. That's what the seed funds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== SLIDE 8 — ACQUIRER FIT (acquirer mode only) ========== -->
+  <div class="section-divider acquirer-only">
+    <span class="num">14 · Acquirers</span>
+    <div class="line"></div>
+    <h3>Who is already shopping</h3>
+  </div>
+  <div class="slide acquirer-only">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">14 / ACQUIRERS</div>
+    <div class="eyebrow">Acquirer fit · acquirer deck only</div>
+    <h2>Six AU buyers with an <em>existing strategic need</em> that Strata uniquely closes.</h2>
+    <p class="sub" style="color: var(--gold-hi);">This slide belongs in the <em>acquirer</em> deck — omit from the investor pitch. HUB24 bought into Reach for retail private-markets access. Praemium partnered with Stropro for the same reason. Strata extends both into tokenised private credit on one pipe.</p>
+
+    <div class="body" style="padding-top: 8px;">
+      <table class="etable">
+        <thead>
+          <tr>
+            <th style="width: 22%;">Candidate</th>
+            <th style="width: 44%;">Strategic gap Strata closes</th>
+            <th style="width: 34%;">Signal in market</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">HUB24<small>ASX-listed · platform</small></td>
+            <td class="tight">Tokenised RE + credit extends private-markets push beyond fund wrappers. Biggest strategic fit.</td>
+            <td class="tight">Bought into Reach Alternative Investments — Sept 2024.</td>
+          </tr>
+          <tr>
+            <td class="name">Praemium<small>ASX-listed · wrap</small></td>
+            <td class="tight">Same thesis as HUB24. Stropro is a half-measure partnership. Strata is the leapfrog acquisition.</td>
+            <td class="tight">Stropro strategic partnership — 2025.</td>
+          </tr>
+          <tr>
+            <td class="name">HMC Capital<small>ASX-listed · FM</small></td>
+            <td class="tight">Multi-vehicle launcher. Sub-trust rails let them spin up the next fund faster. Trans-Tasman fit.</td>
+            <td class="tight">HealthCo · DigiCo · private credit arm · rapid launch cadence.</td>
+          </tr>
+          <tr>
+            <td class="name">DigitalX<small>ASX:DCC · crypto</small></td>
+            <td class="tight">Tokenised RWA thesis. Already ASX-partnered. Strata is the regulated wrapper they lack.</td>
+            <td class="tight">US$13M raise — July 2025 (Animoca et al.).</td>
+          </tr>
+          <tr>
+            <td class="name">Stake<small>private · neobroker</small></td>
+            <td class="tight">Product differentiation beyond equities. White-label as "Stake Property" + "Stake Yield."</td>
+            <td class="tight">Pushed into managed funds / SMSF — 2024–25.</td>
+          </tr>
+          <tr>
+            <td class="name">Centuria Capital<small>ASX-listed · retail FM</small></td>
+            <td class="tight">Traditional FM most likely to treat fractional + tokenised retail as funnel expansion, not threat.</td>
+            <td class="tight">Unlisted property trusts · NZ presence · $21B AUM.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ========== RISK & MITIGATION ========== -->
+  <div class="section-divider">
+    <span class="num">15 · Risk</span>
+    <div class="line"></div>
+    <h3>The objections, pre-empted</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">15 / RISK</div>
+    <div class="eyebrow">Risk &amp; mitigation</div>
+    <h2>Five honest objections. <em>Five sharp answers.</em></h2>
+
+    <div class="body" style="padding-top: 18px;">
+      <table class="etable">
+        <thead>
+          <tr>
+            <th style="width: 30%;">Objection</th>
+            <th style="width: 70%;">How we mitigate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Pre-revenue · no users</td>
+            <td class="tight">Correct. Regulator, licence and platform risk already converted to zero. Seed funds the only remaining conversion — first 2 live funds + 1k retail cohort in 9 months.</td>
+          </tr>
+          <tr>
+            <td class="name">Pivoting from property</td>
+            <td class="tight">The infra is identical. The property build taught us unit registry, PDS, disclosure workflow, secondary market mechanics, KYC. Credit is operationally simpler — pure debt, no property management, no vacancy risk.</td>
+          </tr>
+          <tr>
+            <td class="name">NZ regulatory risk post-Du Val</td>
+            <td class="tight">REP 820 in AU and post-Du Val posture in NZ are tailwinds for compliant rails, not headwinds. Strata is the credible rails — that's the whole point. We don't need new sandbox; standard MIS framework covers credit.</td>
+          </tr>
+          <tr>
+            <td class="name">Single-channel dependency (Sharesies)</td>
+            <td class="tight">Sharesies is one of three parallel distribution paths (Snowball + Kernel as backups + direct Strata front-end as fallback). ASX LIT feeder as a shortcut unlocks Sharesies-standalone access in weeks, not the 12–18mo self-select path.</td>
+          </tr>
+          <tr>
+            <td class="name">Execution risk on first issuer</td>
+            <td class="tight">Research-backed timeline: 4–6 months from NDA to live fund with mid-tier manager. 8-name target list (Revolution AM, Rixon, Zagga, Pallas, Merricks, Pengana, PCG, First AM). Probability-weighted, one close from eight conversations is very achievable.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ========== SLIDE 9 — THE ASK ========== -->
+  <div class="section-divider" id="ask">
+    <span class="num">16 · The ask</span>
+    <div class="line"></div>
+    <h3>What's for sale and what it's worth</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">16 / ASK</div>
+    <div class="eyebrow">The ask</div>
+    <h2>Not a fractional property app. <em>A category-defining infrastructure asset</em> with a live channel and a clear cross-border expansion path.</h2>
+
+    <div class="body" style="padding-top: 30px;">
+      <div class="two">
+        <div>
+          <div class="note" style="color: var(--gold-hi); margin-bottom: 18px;">What the acquirer gets</div>
+          <table class="etable">
+            <tbody>
+              <tr><td class="name" style="width: 50%;">NZ MIS license</td><td class="tight">+ FMA sandbox exemption Dec 25 – Nov 27</td></tr>
+              <tr><td class="name">Strata platform</td><td class="tight">Asset-agnostic, Miquido-built, retail-ready</td></tr>
+              <tr><td class="name">Master trust IP</td><td class="tight">$700K+ MERW legal · add assets = duplicate a deed</td></tr>
+              <tr><td class="name">Sharesies channel</td><td class="tight">930K-member distribution confirmed</td></tr>
+              <tr><td class="name">Partner stack</td><td class="tight">Ray White · CoreLogic · DDB · Compliance Co.</td></tr>
+              <tr><td class="name">Cross-border</td><td class="tight">Architecture maps to AU MIT · SG VCC</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="note" style="color: var(--gold-hi); margin-bottom: 18px;">Valuation logic</div>
+          <div style="font-family: 'Fraunces', serif; font-size: 56px; font-weight: 300; letter-spacing: -0.03em; line-height: 1; color: var(--gold-hi); margin-bottom: 4px;">Seed <em style="font-style: italic; font-weight: 400;">NZ$2–5M</em></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: var(--ink-text); margin-bottom: 14px;">on <strong style="color: var(--gold-hi);">NZ$10–18M</strong> post-money</div>
+          <div class="rule" style="margin: 14px 0 18px; width: 56px; background: var(--gold);"></div>
+          <table class="etable" style="margin-top: 8px;">
+            <tbody>
+              <tr><td class="name" style="width: 48%;">Replacement cost floor</td><td class="tight">~$3–5M legal + platform already built</td></tr>
+              <tr><td class="name">Infra comps (private rounds)</td><td class="tight">iCapital US$7.5B · Moonfare €600–900M · Securitize $47M strategic</td></tr>
+              <tr><td class="name">Pre-revenue multiple</td><td class="tight">Team + licence + pipeline — not ARR</td></tr>
+              <tr><td class="name">Series A marker</td><td class="tight">$25–60M post · 1k investors + $10M AUA + 2 managers live</td></tr>
+              <tr><td class="name">Alt: strategic sale</td><td class="tight">NZ$3–10M cash + AUA earn-out</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== SLIDE 10 — NAMING ========== -->
+  <div class="section-divider">
+    <span class="num">17 · Brand</span>
+    <div class="line"></div>
+    <h3>Strata parent, verticals below</h3>
+  </div>
+  <div class="slide paper">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">17 / BRAND</div>
+    <div class="eyebrow">Brand architecture</div>
+    <h2><em>Strata</em> is the infrastructure. <em>Credit managers</em> are the brand that retail sees.</h2>
+    <p class="sub">Strata doesn't market to retail. Issuers do. The brand a customer sees on the product is Metrics, Revolution, Pallas, PCG — whoever runs on our rails. Strata is regulated pipework, not a consumer brand. The Visa / iCapital / Stripe pattern.</p>
+    <div class="body" style="padding-top: 40px;">
+      <div class="three">
+        <div class="col">
+          <div class="num">— Infrastructure</div>
+          <h4>Strata.</h4>
+          <p>NZ MIS-licensed, PIE-wrapped. Master trust · tokenised unit ledger · secondary market · multi-rate tax · compliance. Not a consumer brand. Licensed, sold, or extended into new jurisdictions.</p>
+        </div>
+        <div class="col">
+          <div class="num">— Issuer layer</div>
+          <h4>The credit managers.</h4>
+          <p>Licensed AU/NZ private credit funds plug into Strata. Their AFSL / MIS, their loan book, their brand to retail. Strata earns setup + SaaS + AUA bps + transaction fees on every tokenised unit.</p>
+        </div>
+        <div class="col">
+          <div class="num">— Channel layer</div>
+          <h4>The retail front-ends.</h4>
+          <p>Sharesies self-select · Snowball Effect · Kernel · InvestNow · HUB24 / Praemium advisers · a direct Strata front-end as a fallback. Retail picks funds the way they pick ETFs.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rule" style="margin-top: 30px;"></div>
+    <p class="note" style="color: var(--paper-mute);">We don't hold credit risk · we don't originate loans · we don't compete with our customers</p>
+  </div>
+
+
+  <!-- ========== SLIDE 11 — CLOSE ========== -->
+  <div class="section-divider">
+    <span class="num">18 · Close</span>
+    <div class="line"></div>
+    <h3>The closing statement</h3>
+  </div>
+  <div class="slide">
+    <div class="wordmark"><span class="dot"></span>STRATA</div>
+    <div class="corner-mark">18 / CLOSE</div>
+    <div class="body" style="flex-direction: column; justify-content: center;">
+      <div class="eyebrow">Close</div>
+      <h2 style="font-size: 56px; max-width: 1100px;">The AU/NZ private credit market is <em>A$188B and growing 15% a year.</em> It has no iCapital. We've already built one.</h2>
+      <p class="sub" style="margin-top: 12px; font-size: 20px; max-width: 900px;">The hardest parts — licence, legal, platform, regulator — are done. What remains is distribution, and we're 90 days from the first MoU. Seed or strategic conversation — we're open to both.</p>
+      <div class="rule-gold" style="margin: 44px 0 28px;"></div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 8px;">
+        <div>
+          <div class="note" style="margin-bottom: 6px;">Next step</div>
+          <p style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; color: var(--ink-text); margin: 0 0 14px;">30-minute deep-dive with Martin and a data-room walkthrough.</p>
+          <a class="book-cta" href="https://cal.com/strata/intro" target="_blank" rel="noopener">
+            Book 30 min
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div>
+          <div class="note" style="margin-bottom: 6px;">Contact</div>
+          <p style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; color: var(--gold-hi); margin: 0;"><a href="mailto:martin@homeshare.co.nz" style="color: inherit; text-decoration: none;">martin@homeshare.co.nz</a></p>
+          <p style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--ink-mute); margin: 4px 0 0;">AUCKLAND · NZ</p>
+        </div>
+        <div>
+          <div class="note" style="margin-bottom: 6px;">Data room</div>
+          <p style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; color: var(--ink-text); margin: 0;">MIS docs · MERW legal · Miquido build · Compliance Co audit · terms on request.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="deckfooter">
+    Strata · Design system v1 · 2026 · The page you're reading is built on the stack that will run your fund.
+  </div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ——— Acquirer-mode URL parameter ———
+  // Visit /?mode=acquirer to flip the deck into acquirer mode.
+  // Shows Acquirer Fit slide, hides the investor-specific Ask + Roadmap copy.
+  var params = new URLSearchParams(window.location.search);
+  var isAcquirer = params.get('mode') === 'acquirer';
+  if (isAcquirer) {
+    document.body.classList.add('mode-acquirer');
+  } else {
+    document.body.classList.add('mode-investor');
+  }
+
+  // ——— Progress bar ———
+  var progressFill = document.getElementById('progressFill');
+  function updateProgress () {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (progressFill) progressFill.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  // ——— Scroll reveal (IntersectionObserver) ———
+  // Auto-tag every .slide as a reveal target
+  document.querySelectorAll('.slide').forEach(function (el) { el.classList.add('reveal'); });
+  document.querySelectorAll('.section-divider').forEach(function (el) { el.classList.add('reveal'); });
+
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+    // Immediate pass: anything already in or near the viewport at load should reveal right away,
+    // so landing mid-page (reload, anchor, or deep-link) never shows blank panels.
+    requestAnimationFrame(function () {
+      var vh = window.innerHeight;
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < vh && r.bottom > 0) el.classList.add('in');
+      });
+    });
+
+    // Hard safety-net: if for any reason something stays unrevealed after 1500ms, reveal all.
+    setTimeout(function () {
+      document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); });
+    }, 1500);
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // ——— Animated number counters ———
+  // Any element with [data-counter] animates up to its text content when scrolled into view.
+  function animateCounter (el) {
+    var target = parseFloat(el.getAttribute('data-counter'));
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var prefix = el.getAttribute('data-prefix') || '';
+    if (isNaN(target)) return;
+    var duration = 1400;
+    var start = performance.now();
+    function frame (now) {
+      var t = Math.min(1, (now - start) / duration);
+      // ease-out cubic
+      var eased = 1 - Math.pow(1 - t, 3);
+      var value = target * eased;
+      el.textContent = prefix + value.toFixed(decimals) + suffix;
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  if ('IntersectionObserver' in window) {
+    var counterObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-counter]').forEach(function (el) { counterObs.observe(el); });
+  }
+
+  // ——— Smooth scroll for nav anchors ———
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href');
+      if (id && id.length > 1) {
+        var target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
