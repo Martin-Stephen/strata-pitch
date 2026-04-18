@@ -1133,35 +1133,175 @@
 
     <div class="body" style="padding-top: 12px;">
       <div class="two">
+        <!-- =============================== -->
+        <!-- ISSUER CONSOLE MOCKUP (light UI) -->
+        <!-- =============================== -->
         <div>
-          <div class="note" style="color: var(--gold-dim); margin-bottom: 14px;">Issuer console</div>
-          <!-- Placeholder: drop a 16:10 PNG of your Strata admin here -->
-          <div style="aspect-ratio: 16/10; background: #221F1B; border: 1px solid var(--paper-rule); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 6px;">
-              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
-              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
-              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
+          <div class="note" style="color: var(--gold-dim); margin-bottom: 14px;">Issuer console · Strata admin</div>
+          <div style="aspect-ratio: 16/10; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 20px -4px rgba(0,0,0,0.08); overflow: hidden; display: grid; grid-template-columns: 110px 1fr; font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif; color: #111827;">
+            <!-- Sidebar -->
+            <div style="background: #F9FAFB; border-right: 1px solid #E5E7EB; padding: 14px 10px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 6px; padding: 0 4px 10px; border-bottom: 1px solid #E5E7EB;">
+                <span style="width: 16px; height: 16px; border-radius: 4px; background: #2563EB; display: inline-block;"></span>
+                <span style="font-size: 10px; font-weight: 600; color: #111827; letter-spacing: -0.01em;">strata</span>
+              </div>
+              <div style="font-size: 7.5px; color: #9CA3AF; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 4px;">Main</div>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <div style="font-size: 9px; color: #6B7280; padding: 4px 6px;">Dashboard</div>
+                <div style="font-size: 9px; color: #111827; padding: 4px 6px; background: #EFF6FF; border-radius: 4px; font-weight: 600;">Funds</div>
+                <div style="font-size: 9px; color: #6B7280; padding: 4px 6px;">Issuers</div>
+                <div style="font-size: 9px; color: #6B7280; padding: 4px 6px;">Investors</div>
+                <div style="font-size: 9px; color: #6B7280; padding: 4px 6px;">Distributions</div>
+                <div style="font-size: 9px; color: #6B7280; padding: 4px 6px;">Secondary market</div>
+                <div style="font-size: 9px; color: #6B7280; padding: 4px 6px;">Compliance</div>
+                <div style="font-size: 9px; color: #6B7280; padding: 4px 6px;">NAV feeds</div>
+              </div>
             </div>
-            <div style="text-align: center; color: var(--gold-hi); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;">
-              [ADMIN SCREENSHOT GOES HERE]<br><span style="color: var(--ink-mute); font-size: 10px;">export from Strata · 1920×1200 · PNG</span>
+            <!-- Main content -->
+            <div style="padding: 12px 14px; overflow: hidden;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 10px;">
+                <div>
+                  <div style="font-size: 12px; font-weight: 600; color: #111827; letter-spacing: -0.01em;">Credit funds</div>
+                  <div style="font-size: 8px; color: #6B7280;">Manage issuer funds, sub-trusts, and NAV feeds</div>
+                </div>
+                <div style="font-size: 8px; color: #FFFFFF; background: #2563EB; padding: 4px 8px; border-radius: 4px; font-weight: 500;">+ Add fund</div>
+              </div>
+              <!-- Stat tiles -->
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 10px;">
+                <div style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 8px;">
+                  <div style="font-size: 7px; color: #6B7280;">Live funds</div>
+                  <div style="font-size: 13px; font-weight: 600; color: #111827; margin-top: 1px;">3</div>
+                </div>
+                <div style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 8px;">
+                  <div style="font-size: 7px; color: #6B7280;">Total AUA</div>
+                  <div style="font-size: 13px; font-weight: 600; color: #111827; margin-top: 1px;">NZ$14.2M</div>
+                </div>
+                <div style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 8px;">
+                  <div style="font-size: 7px; color: #6B7280;">Investors</div>
+                  <div style="font-size: 13px; font-weight: 600; color: #111827; margin-top: 1px;">742</div>
+                </div>
+                <div style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 8px;">
+                  <div style="font-size: 7px; color: #6B7280;">Avg yield</div>
+                  <div style="font-size: 13px; font-weight: 600; color: #111827; margin-top: 1px;">7.4%</div>
+                </div>
+              </div>
+              <!-- Table -->
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 4px; overflow: hidden;">
+                <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.7fr; padding: 5px 8px; background: #F9FAFB; border-bottom: 1px solid #E5E7EB; font-size: 6.5px; font-weight: 600; color: #6B7280; letter-spacing: 0.06em; text-transform: uppercase;">
+                  <div>Fund</div><div>Manager</div><div>AUA</div><div>Yield</div><div>Status</div>
+                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.7fr; padding: 6px 8px; border-bottom: 1px solid #F3F4F6; font-size: 8px; color: #111827; align-items: center;">
+                  <div style="font-weight: 500;">Revolution Private Credit</div><div style="color: #6B7280;">Revolution AM</div><div>NZ$8.4M</div><div>7.6%</div><div><span style="background: #D1FAE5; color: #065F46; padding: 1px 5px; border-radius: 3px; font-size: 7px; font-weight: 500;">Live</span></div>
+                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.7fr; padding: 6px 8px; border-bottom: 1px solid #F3F4F6; font-size: 8px; color: #111827; align-items: center;">
+                  <div style="font-weight: 500;">PCG Diversified NZ Debt</div><div style="color: #6B7280;">PCG</div><div>NZ$3.1M</div><div>8.0%</div><div><span style="background: #D1FAE5; color: #065F46; padding: 1px 5px; border-radius: 3px; font-size: 7px; font-weight: 500;">Live</span></div>
+                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.7fr; padding: 6px 8px; border-bottom: 1px solid #F3F4F6; font-size: 8px; color: #111827; align-items: center;">
+                  <div style="font-weight: 500;">Rixon CRE Debt Fund II</div><div style="color: #6B7280;">Rixon Capital</div><div>NZ$2.7M</div><div>7.1%</div><div><span style="background: #D1FAE5; color: #065F46; padding: 1px 5px; border-radius: 3px; font-size: 7px; font-weight: 500;">Live</span></div>
+                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.7fr; padding: 6px 8px; font-size: 8px; color: #111827; align-items: center;">
+                  <div style="font-weight: 500;">Zagga Bridging Fund</div><div style="color: #6B7280;">Zagga</div><div>—</div><div>—</div><div><span style="background: #FEF3C7; color: #92400E; padding: 1px 5px; border-radius: 3px; font-size: 7px; font-weight: 500;">PDS draft</span></div>
+                </div>
+              </div>
             </div>
           </div>
           <p style="font-size: 12.5px; color: var(--paper-mute); line-height: 1.55; margin: 14px 0 0;">Fund onboarding · unit issuance · NAV feeds · distribution schedule · investor register · audit log.</p>
+          <p style="font-size: 10px; color: var(--paper-mute); line-height: 1.5; margin: 6px 0 0; font-style: italic;">Mock data. Platform currently deployed for fractional ownership; credit-fund view scoped for seed build-out.</p>
         </div>
+
+        <!-- ===================================== -->
+        <!-- INVESTOR MARKETPLACE MOCKUP (light UI) -->
+        <!-- ===================================== -->
         <div>
-          <div class="note" style="color: var(--gold-dim); margin-bottom: 14px;">Investor marketplace</div>
-          <!-- Placeholder: drop a 16:10 PNG of your marketplace/wallet UI here -->
-          <div style="aspect-ratio: 16/10; background: #221F1B; border: 1px solid var(--paper-rule); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 6px;">
-              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
-              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
-              <span style="width: 10px; height: 10px; border-radius: 999px; background: #3A342C;"></span>
+          <div class="note" style="color: var(--gold-dim); margin-bottom: 14px;">Investor marketplace · Strata retail</div>
+          <div style="aspect-ratio: 16/10; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 20px -4px rgba(0,0,0,0.08); overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif; color: #111827;">
+            <!-- Top bar -->
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; border-bottom: 1px solid #E5E7EB; background: #F9FAFB;">
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div style="display: flex; align-items: center; gap: 5px;">
+                  <span style="width: 14px; height: 14px; border-radius: 4px; background: #2563EB; display: inline-block;"></span>
+                  <span style="font-size: 10px; font-weight: 600; color: #111827;">strata</span>
+                </div>
+                <span style="font-size: 8px; color: #111827; font-weight: 500;">Browse funds</span>
+                <span style="font-size: 8px; color: #6B7280;">Portfolio</span>
+                <span style="font-size: 8px; color: #6B7280;">Wallet</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 8px; color: #6B7280;">NZ$1,420 available</span>
+                <span style="width: 18px; height: 18px; border-radius: 999px; background: #DBEAFE; display: inline-block;"></span>
+              </div>
             </div>
-            <div style="text-align: center; color: var(--gold-hi); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;">
-              [MARKETPLACE SCREENSHOT GOES HERE]<br><span style="color: var(--ink-mute); font-size: 10px;">export from retail app · 1920×1200 · PNG</span>
+            <!-- Header -->
+            <div style="padding: 10px 14px 6px;">
+              <div style="font-size: 11px; font-weight: 600; color: #111827; letter-spacing: -0.01em;">Regulated private credit funds</div>
+              <div style="font-size: 7.5px; color: #6B7280;">Invest from NZ$100 &middot; monthly distributions &middot; PIE-wrapped</div>
+            </div>
+            <!-- Filter pills -->
+            <div style="display: flex; gap: 5px; padding: 0 14px 8px;">
+              <span style="font-size: 7px; color: #FFFFFF; background: #2563EB; padding: 2px 7px; border-radius: 999px; font-weight: 500;">All</span>
+              <span style="font-size: 7px; color: #6B7280; background: #F3F4F6; padding: 2px 7px; border-radius: 999px;">CRE debt</span>
+              <span style="font-size: 7px; color: #6B7280; background: #F3F4F6; padding: 2px 7px; border-radius: 999px;">Corporate</span>
+              <span style="font-size: 7px; color: #6B7280; background: #F3F4F6; padding: 2px 7px; border-radius: 999px;">Bridging</span>
+              <span style="font-size: 7px; color: #6B7280; background: #F3F4F6; padding: 2px 7px; border-radius: 999px;">6%+ yield</span>
+            </div>
+            <!-- Fund cards grid -->
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; padding: 0 14px 10px;">
+              <!-- Card 1 -->
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 6px; padding: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-size: 8.5px; font-weight: 600; color: #111827; line-height: 1.2;">Revolution<br>Private Credit</div>
+                  <span style="font-size: 11px; font-weight: 700; color: #065F46;">7.6%</span>
+                </div>
+                <div style="font-size: 6.5px; color: #6B7280; margin-bottom: 5px;">Senior-secured CRE debt &middot; RBA +4.00%</div>
+                <div style="height: 3px; background: #F3F4F6; border-radius: 2px; overflow: hidden;"><div style="width: 72%; height: 100%; background: #2563EB;"></div></div>
+                <div style="display: flex; justify-content: space-between; font-size: 6px; color: #6B7280; margin-top: 3px;">
+                  <span>NZ$6.1M / NZ$8.5M</span><span>72% filled</span>
+                </div>
+                <div style="font-size: 7px; color: #FFFFFF; background: #2563EB; padding: 3px 6px; border-radius: 4px; text-align: center; margin-top: 6px; font-weight: 500;">Invest from NZ$100</div>
+              </div>
+              <!-- Card 2 -->
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 6px; padding: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-size: 8.5px; font-weight: 600; color: #111827; line-height: 1.2;">PCG Diversified<br>NZ Private Debt</div>
+                  <span style="font-size: 11px; font-weight: 700; color: #065F46;">8.0%</span>
+                </div>
+                <div style="font-size: 6.5px; color: #6B7280; margin-bottom: 5px;">Diversified NZ corporate + CRE</div>
+                <div style="height: 3px; background: #F3F4F6; border-radius: 2px; overflow: hidden;"><div style="width: 58%; height: 100%; background: #2563EB;"></div></div>
+                <div style="display: flex; justify-content: space-between; font-size: 6px; color: #6B7280; margin-top: 3px;">
+                  <span>NZ$1.8M / NZ$3.1M</span><span>58% filled</span>
+                </div>
+                <div style="font-size: 7px; color: #FFFFFF; background: #2563EB; padding: 3px 6px; border-radius: 4px; text-align: center; margin-top: 6px; font-weight: 500;">Invest from NZ$100</div>
+              </div>
+              <!-- Card 3 -->
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 6px; padding: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-size: 8.5px; font-weight: 600; color: #111827; line-height: 1.2;">Rixon CRE<br>Debt Fund II</div>
+                  <span style="font-size: 11px; font-weight: 700; color: #065F46;">7.1%</span>
+                </div>
+                <div style="font-size: 6.5px; color: #6B7280; margin-bottom: 5px;">First-ranked CRE bridging</div>
+                <div style="height: 3px; background: #F3F4F6; border-radius: 2px; overflow: hidden;"><div style="width: 41%; height: 100%; background: #2563EB;"></div></div>
+                <div style="display: flex; justify-content: space-between; font-size: 6px; color: #6B7280; margin-top: 3px;">
+                  <span>NZ$1.1M / NZ$2.7M</span><span>41% filled</span>
+                </div>
+                <div style="font-size: 7px; color: #FFFFFF; background: #2563EB; padding: 3px 6px; border-radius: 4px; text-align: center; margin-top: 6px; font-weight: 500;">Invest from NZ$100</div>
+              </div>
+              <!-- Card 4 -->
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 6px; padding: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-size: 8.5px; font-weight: 600; color: #111827; line-height: 1.2;">Zagga Bridging<br>Fund</div>
+                  <span style="font-size: 8px; font-weight: 600; color: #92400E; background: #FEF3C7; padding: 1px 5px; border-radius: 3px;">Coming soon</span>
+                </div>
+                <div style="font-size: 6.5px; color: #6B7280; margin-bottom: 5px;">Short-duration bridging loans</div>
+                <div style="height: 3px; background: #F3F4F6; border-radius: 2px; overflow: hidden;"></div>
+                <div style="display: flex; justify-content: space-between; font-size: 6px; color: #6B7280; margin-top: 3px;">
+                  <span>Pre-launch</span><span>PDS in review</span>
+                </div>
+                <div style="font-size: 7px; color: #2563EB; background: #EFF6FF; padding: 3px 6px; border-radius: 4px; text-align: center; margin-top: 6px; font-weight: 500;">Get notified</div>
+              </div>
             </div>
           </div>
           <p style="font-size: 12.5px; color: var(--paper-mute); line-height: 1.55; margin: 14px 0 0;">Browse · invest from $100 · monthly distributions · secondary market · wallet + tax statements.</p>
+          <p style="font-size: 10px; color: var(--paper-mute); line-height: 1.5; margin: 6px 0 0; font-style: italic;">Mock data. Retail app currently deployed for fractional ownership; credit-product flow scoped for seed build-out.</p>
         </div>
       </div>
     </div>
