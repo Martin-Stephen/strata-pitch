@@ -877,9 +877,9 @@
             <div style="position: absolute; top: 50%; left: 0; right: 0; border-top: 1px dashed var(--ink-rule);"></div>
             <div style="position: absolute; top: 0; bottom: 0; left: 50%; border-left: 1px dashed var(--ink-rule);"></div>
 
-            <!-- Rotated Y-axis labels (editorial FT-style) -->
-            <div style="position: absolute; top: 25%; left: -10px; transform: translateY(-50%) rotate(-90deg); transform-origin: left center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap; padding-left: 8px;">Multi-issuer platform</div>
-            <div style="position: absolute; top: 75%; left: -10px; transform: translateY(-50%) rotate(-90deg); transform-origin: left center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap; padding-left: 8px;">Single-issuer product</div>
+            <!-- Rotated Y-axis labels (editorial FT-style, anchored to quadrant midpoint) -->
+            <div style="position: absolute; top: 25%; left: -28px; transform: translateY(-50%) rotate(-90deg); transform-origin: center center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap;">Multi-issuer platform</div>
+            <div style="position: absolute; top: 75%; left: -28px; transform: translateY(-50%) rotate(-90deg); transform-origin: center center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap;">Single-issuer product</div>
 
             <!-- Quadrant labels -->
             <div style="position: absolute; top: 10px; left: 14px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-hi);">The open slot</div>
@@ -961,21 +961,35 @@
           </p>
         </div>
 
-        <!-- Sidebar -->
+        <!-- Sidebar: Why now -->
         <div style="border-left: 1px solid var(--ink-rule); padding: 4px 0 0 28px;">
-          <div class="note" style="color: var(--gold-hi); margin-bottom: 14px;">What this means for Strata</div>
-          <p style="font-family: 'Fraunces', serif; font-size: 17px; font-weight: 400; line-height: 1.35; letter-spacing: -0.015em; color: var(--ink-text); margin: 0 0 14px;">
-            The top-left quadrant is structurally empty — in AU/NZ and globally.
-          </p>
-          <p style="font-size: 13px; color: var(--ink-dim); line-height: 1.6; margin: 0 0 16px;">
-            Every comp clusters in wholesale/HNW territory (iCapital, CAIS, Moonfare, Percent, Willow, Reach) or sits alone as a single-product issuer (Metrics, Arrived, Squirrel).
-          </p>
-          <p style="font-size: 13px; color: var(--ink-dim); line-height: 1.6; margin: 0 0 16px;">
-            The retail-first, multi-issuer quadrant requires a regulated local wrapper and multi-manager trust architecture. Both are hard to build, slow to licence, and rarely attempted by either end of the market.
-          </p>
-          <div style="padding: 14px 16px; border: 1px solid var(--gold); margin-top: 18px;">
+          <div class="note" style="color: var(--gold-hi); margin-bottom: 16px;">Why now</div>
+
+          <!-- Tailwind 1 -->
+          <div style="margin-bottom: 20px;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px;">01 · ASIC REP 820 · Nov 2025</div>
+            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">Mid-tier AU credit managers just hit a distribution ceiling.</p>
+            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">Retail-disclosure bar raised overnight. In-house retail build = 18 months + A$1–2M per manager. 8–10 managers ($100M–$2B AUM) need compliant rails they can't absorb alone.</p>
+          </div>
+
+          <!-- Tailwind 2 -->
+          <div style="margin-bottom: 20px;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px;">02 · BlackRock &middot; Apollo &middot; Securitize · 2024–25</div>
+            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">Tokenised private credit crossed the institutional threshold.</p>
+            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">BUIDL &gt;US$2.5B · Apollo ACRED live · Hamilton Lane SCOPE via Securitize · Securitize Cantor-SPAC Oct 2025. Institutional legitimacy risk for the category has cleared.</p>
+          </div>
+
+          <!-- Tailwind 3 -->
+          <div style="margin-bottom: 22px;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px;">03 · AU/NZ retail · 2025–26</div>
+            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">Retail is ready — and underserved.</p>
+            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">Term deposits at ~4% &middot; retail PC at 6.5–8%. Sharesies 930K members. Squirrel has a waiting list. Demand proven, supply absent, distribution rails mature.</p>
+          </div>
+
+          <!-- Payoff -->
+          <div style="padding: 14px 16px; border: 1px solid var(--gold);">
             <p style="font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--gold-hi); line-height: 1.45; margin: 0; letter-spacing: -0.01em;">
-              Strata is positioned at the intersection no one is building toward.
+              The intersection is empty because building it requires all three to be true at once — and they only just are.
             </p>
           </div>
         </div>
