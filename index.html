@@ -695,38 +695,28 @@
 
   /* ——— Mobile ——— */
   @media (max-width: 900px) {
-    html, body { overflow-x: hidden; max-width: 100%; }
     body { padding-top: 56px; }
-    .wrap { padding: 0 20px; max-width: 100%; }
-    h1.main { font-size: 36px; line-height: 1.1; }
+    .wrap { padding: 0 20px; }
+    h1.main { font-size: 40px; }
     .main-sub { font-size: 15px; margin-bottom: 40px; }
     .meta { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 10px; }
     .section-divider h3 { font-size: 16px; }
     .slide {
       aspect-ratio: auto;
-      padding: 72px 22px 36px;
-      min-height: 0;
+      padding: 40px 28px 36px;
+      min-height: 540px;
       margin-bottom: 32px;
-      overflow-x: hidden;
     }
-    /* Allow grid/flex children to shrink below their intrinsic content width */
-    .slide *, .body, .two > *, .three > *, .stat-grid > *, .m-stack > * { min-width: 0; }
-    .slide p, .slide h2, .slide h3, .slide h4, .slide h5, .slide div { overflow-wrap: anywhere; }
-    .wordmark { top: 20px; left: 20px; font-size: 14px; }
-    .corner-mark { top: 20px; right: 20px; font-size: 9px; }
-    .slide > .eyebrow { margin-top: 4px; }
-    .m-stack { grid-template-columns: 1fr !important; gap: 20px !important; }
-    .slide h2 { font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; }
-    .slide h2.small { font-size: 22px; }
-    .slide .sub { font-size: 14px; line-height: 1.5; }
+    .slide h2 { font-size: 32px; line-height: 1.1; }
+    .slide h2.small { font-size: 24px; }
+    .slide .sub { font-size: 14.5px; }
     .three { grid-template-columns: 1fr; gap: 24px; }
     .two { grid-template-columns: 1fr; gap: 32px; }
-    .body { flex-direction: column; }
     .stat-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat { padding: 18px 16px 18px 16px; }
+    .stat { padding: 18px 20px 18px 20px; }
     .stat:nth-child(3) { border-left: none; padding-left: 0; border-top: 1px solid var(--ink-rule); padding-top: 20px; margin-top: 10px; }
     .slide.paper .stat:nth-child(3) { border-color: var(--paper-rule); }
-    .stat .k { font-size: 28px; }
+    .stat .k { font-size: 32px; }
     .phases { grid-template-columns: 1fr; gap: 28px; }
     .phase { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; padding-bottom: 20px; border-bottom: 1px solid var(--ink-rule); }
     .phase:last-child { border-bottom: none; }
@@ -739,31 +729,14 @@
     .mrow .val-head { font-size: 22px; }
     .mrow .label-head { font-size: 15px; }
     .mrow .label-head small { display: block; margin-left: 0; margin-top: 2px; }
-    /* Stack editorial table rows on mobile so nothing scrolls horizontally */
-    .etable, .etable tbody, .etable tr, .etable td { display: block; width: 100% !important; white-space: normal; }
-    .etable tr { border-bottom: 1px dotted var(--ink-rule); padding: 10px 0; }
-    .slide.paper .etable tr { border-color: var(--paper-rule); }
-    .etable td { padding: 2px 0; border-bottom: none; font-size: 13px; line-height: 1.5; }
-    .etable td.name { font-size: 15px; padding-bottom: 4px; }
-    .etable td.tight { font-size: 12.5px; }
-    /* Horizontal bar chart: name on top, bar + value below */
-    .hbar-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 6px 12px; padding: 14px 0; }
-    .hbar-row .name { grid-column: 1 / -1; }
-    .hbar-row .val { font-size: 13px; }
-    /* Cover hero scales down */
-    .cover-hero .brand { font-size: 84px; }
-    .cover-hero .tagline { font-size: 18px; line-height: 1.4; }
-    .cover-meta { flex-direction: column; align-items: flex-start; gap: 8px; font-size: 10px; }
+    .etable { font-size: 12px; display: block; overflow-x: auto; white-space: nowrap; }
+    .cover-hero .brand { font-size: 96px; }
+    .cover-hero .tagline { font-size: 20px; }
+    .cover-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
     .cover-meta .right { text-align: left; }
-    /* Inline-styled headings shrink — common pattern is style="font-size: NNpx" */
-    .slide [style*="font-size: 56px"] { font-size: 28px !important; line-height: 1.15 !important; }
-    .slide [style*="font-size: 26px"] { font-size: 20px !important; }
-    .slide [style*="font-size: 20px"] { font-size: 16px !important; }
     .topnav { padding: 12px 16px; }
     .topnav .right { gap: 12px; }
     .topnav a.nav-hide-mobile { display: none; }
-    /* References block padding shrinks on mobile */
-    .wrap > div[style*="padding: 28px 32px"] { padding: 22px 18px !important; }
   }
 
   /* ——— Print ——— */
@@ -817,6 +790,8 @@
   <!-- ========== TOP MATTER ========== -->
   <div class="meta">
     <span><strong>STRATA</strong> · DESIGN SYSTEM v1</span>
+    <span>INSTITUTIONAL EDITORIAL · INK × GOLD × CREAM</span>
+    <span>2026 · MARTIN × NICK × BROKER</span>
   </div>
 
   <h1 class="main">The <em>Stripe</em> of regulated real-world assets.</h1>
@@ -892,6 +867,10 @@
     <div class="body" style="flex-direction: column; justify-content: center;">
       <h2>AU/NZ private credit is a <strong>~A$200B market</strong> with <em>no retail-first distribution infrastructure.</em> Every global comp proves this category is winner-takes-most.</h2>
       <p class="sub" style="margin-top: 12px;">iCapital is worth US$7.5B. Moonfare is €3.8B AUM. Securitize raised at category-leading multiples. AU/NZ has the regulatory moat, the mid-tier credit managers, and the retail demand — but no built rails. We built them.</p>
+      <div class="pull" style="margin-top: 28px;">
+        No one in the US, EU, UK, or Asia-Pacific combines <em>all four filters</em> — retail tickets · multi-issuer · private credit · regulated wrapper. Not in any major wealth market — and <em>not in AU/NZ</em>.
+      </div>
+      <p class="note" style="margin-top: 20px;">Mapped against 25+ global comps: iCapital · Moonfare · Percent · Willow Wealth · CAIS · Securitize · Ondo · Centrifuge · Goldfinch · Reach · Stropro · Squirrel and more.</p>
       <div class="rule-gold"></div>
       <p class="note">ASIC REP 820 · ICAPITAL US$7.5B (JUL 2025) · MOONFARE €3.8B · SECURITIZE $47M STRATEGIC · GLOBAL PC US$3T → US$5T BY 2029 (MORGAN STANLEY)</p>
     </div>
@@ -935,7 +914,7 @@
           </div>
         </div>
         <div class="rule" style="margin: 32px 0 20px;"></div>
-        <div class="m-stack" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
           <div>
             <div class="note" style="color: var(--gold-dim); margin-bottom: 8px;">What a new entrant would have to replicate</div>
             <p style="font-size: 13px; color: var(--paper-mute); line-height: 1.55; margin: 0;">~2 years legal (MERW) · ~$1M+ legal spend · ~$1.5M+ platform build · FMA sandbox engagement from scratch · master-trust + PIE architecture from first principles · Compliance Company audit · partner onboarding.</p>
@@ -1341,7 +1320,7 @@
         </div>
 
         <!-- Station cards -->
-        <div class="m-stack" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px;">
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px;">
           <!-- Station 1 -->
           <div style="border: 1px solid var(--paper-rule); border-radius: 3px; padding: 18px 16px 18px; background: rgba(255,255,255,0.35);">
             <div style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; line-height: 1.2; letter-spacing: -0.01em; color: var(--paper-ink); margin-bottom: 14px;">Seed close</div>
@@ -1405,7 +1384,7 @@
 
         <!-- Footer -->
         <div class="rule" style="margin: 28px 0 16px;"></div>
-        <div class="m-stack" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
           <div>
             <div class="note" style="color: var(--gold-dim); margin-bottom: 8px;">Why these targets</div>
             <p style="font-size: 12px; color: var(--paper-mute); line-height: 1.55; margin: 0;">AUA trajectory sits below Strata's 3-year A$500M+ ambition, in line with Arrived / Moonfare / Groundfloor comparables at the same stage. 60 bps + setup + SaaS carries the ARR.</p>
@@ -1516,6 +1495,7 @@
     <div class="eyebrow">Competitive landscape</div>
     <h2>The category is <em>proven globally</em>. The AU/NZ slot is <em>empty.</em></h2>
     <p class="sub">iCapital (US$7.5B), Moonfare (€3.8B AUM), Percent, Willow Wealth, Groundfloor have all validated the rails-for-alts thesis. Local AU/NZ incumbents are single-product issuers, not platforms. Strata is the only native AU/NZ rails candidate with an FMA regulatory position already in force.</p>
+    <p class="note" style="color: var(--gold-hi); margin-top: 4px;">FOUR FILTERS · RETAIL TICKETS (SUB-A$1K) · MULTI-ISSUER · PRIVATE CREDIT · REGULATED WRAPPER — EVERY COMP FAILS AT LEAST ONE. STRATA DOES NOT.</p>
 
     <div class="body" style="padding-top: 6px;">
       <table class="etable">
@@ -1532,25 +1512,37 @@
             <td class="name">iCapital<small>US · adviser rails</small></td>
             <td class="tight">Adviser platform for alts</td>
             <td class="tight">US$7.5B valn · US$820M raise Jul 25</td>
-            <td class="tight">Not in AU/NZ · adviser-gated, not retail-direct</td>
+            <td class="tight">Adviser-gated · not retail-direct · no AU/NZ licence path</td>
           </tr>
           <tr>
             <td class="name">Moonfare<small>EU · HNW platform</small></td>
             <td class="tight">Feeder-fund platform</td>
             <td class="tight">€3.8B AUM · Insight / Fidelity backed</td>
-            <td class="tight">€50K minimum — not retail · EU-focused</td>
+            <td class="tight">€50K min (HNW only) · PE-weighted not PC · EU-focused</td>
           </tr>
           <tr>
             <td class="name">Percent<small>US · credit marketplace</small></td>
             <td class="tight">Direct-issuer rails for credit</td>
             <td class="tight">US$1.68B funded since 2018</td>
-            <td class="tight">Accredited only · no AU/NZ licence path</td>
+            <td class="tight">Accredited only (SEC Reg D) · US only · no AU/NZ licence path</td>
           </tr>
           <tr>
             <td class="name">Willow Wealth<small>US · rails (ex-Yieldstreet)</small></td>
             <td class="tight">Retail alts platform</td>
             <td class="tight">US$11.7B AUM via partners</td>
-            <td class="tight">Direct-underwriting model failed — pivoted to pure rails (our model)</td>
+            <td class="tight">Accredited only · US only · recent US$208M disclosed investor losses</td>
+          </tr>
+          <tr>
+            <td class="name">Reach Alt. Investments<small>AU · HUB24-backed</small></td>
+            <td class="tight">Feeder-fund platform</td>
+            <td class="tight">HUB24 minority stake Sept 2024</td>
+            <td class="tight">Wholesale only (A$50K+) · adviser-gated · not tokenised</td>
+          </tr>
+          <tr>
+            <td class="name">Stropro<small>AU · Praemium partner</small></td>
+            <td class="tight">Structured-product platform</td>
+            <td class="tight">A$1.6B deployed · 50+ advisory firms</td>
+            <td class="tight">Wholesale only · structured products, not pure PC · not tokenised</td>
           </tr>
           <tr>
             <td class="name">Metrics &amp; La Trobe<small>AU · credit managers</small></td>
@@ -1562,7 +1554,7 @@
             <td class="name">Squirrel<small>NZ · retail P2P</small></td>
             <td class="tight">Originator + retail P2P</td>
             <td class="tight">~NZ$1B lent historically</td>
-            <td class="tight">Own loan book only · no multi-issuer rails · investor queue exceeds supply</td>
+            <td class="tight">Own loan book only · consumer loans not institutional PC · no multi-issuer rails</td>
           </tr>
           <tr>
             <td class="name" style="color: var(--gold-hi);">Strata<small>AU/NZ · rails</small></td>
@@ -1788,7 +1780,7 @@
       <h2 style="font-size: 56px; max-width: 1100px;">The AU/NZ private credit market is <em>~A$200B and has compounded at ~15% p.a. since 2016.</em> It has no iCapital. We've already built one.</h2>
       <p class="sub" style="margin-top: 12px; font-size: 20px; max-width: 900px;">The hardest parts — sandbox position, legal, platform, regulator — are done. What remains is distribution and the first commercial launch. Seed or strategic conversation — we're open to both.</p>
       <div class="rule-gold" style="margin: 44px 0 28px;"></div>
-      <div class="m-stack" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 8px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 8px;">
         <div>
           <div class="note" style="margin-bottom: 6px;">Next step</div>
           <p style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; color: var(--ink-text); margin: 0 0 14px;">30-minute deep-dive with Martin and a data-room walkthrough.</p>
@@ -1814,7 +1806,7 @@
   <!-- ========== REFERENCES ========== -->
   <div style="margin-top: 80px; padding: 28px 32px; border-top: 1px solid var(--ink-rule); border-bottom: 1px solid var(--ink-rule); font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 1.7; color: var(--ink-mute); letter-spacing: 0.04em;">
     <div style="font-weight: 500; color: var(--gold-hi); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; font-size: 10px;">References · primary sources</div>
-    <div class="m-stack" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 32px;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 32px;">
       <span>ASIC REP 820, Nov 2025 · <a href="https://www.asic.gov.au/regulatory-resources/find-a-document/reports/rep-820-private-credit-surveillance-report-retail-and-wholesale-surveillance/" target="_blank" rel="noopener" style="color: var(--ink-dim); text-decoration: none; border-bottom: 1px dotted var(--ink-rule);">asic.gov.au</a></span>
       <span>ASIC REP 814, Sept 2025 · <a href="https://www.asic.gov.au/regulatory-resources/find-a-document/reports/rep-814-private-credit-in-australia/" target="_blank" rel="noopener" style="color: var(--ink-dim); text-decoration: none; border-bottom: 1px dotted var(--ink-rule);">asic.gov.au</a></span>
       <span>EY-Parthenon AU Private Debt Review, Mar 2026 · <a href="https://www.ey.com/en_au/insights/strategy/australian-private-debt-market-overview" target="_blank" rel="noopener" style="color: var(--ink-dim); text-decoration: none; border-bottom: 1px dotted var(--ink-rule);">ey.com</a></span>
