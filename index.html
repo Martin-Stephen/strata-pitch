@@ -870,16 +870,16 @@
       <!-- Positioning map: Retail/Wholesale × Single/Multi-issuer -->
       <div style="margin-top: 32px; display: grid; grid-template-columns: 1.65fr 1fr; gap: 48px; align-items: start;">
         <!-- Chart -->
-        <div>
+        <div style="padding-left: 28px;">
           <!-- Chart area with rotated Y-axis labels on the edge -->
           <div style="position: relative; height: 420px; border: 1px solid var(--ink-rule);">
             <!-- Quadrant dividers -->
             <div style="position: absolute; top: 50%; left: 0; right: 0; border-top: 1px dashed var(--ink-rule);"></div>
             <div style="position: absolute; top: 0; bottom: 0; left: 50%; border-left: 1px dashed var(--ink-rule);"></div>
 
-            <!-- Rotated Y-axis labels (editorial FT-style, anchored to quadrant midpoint) -->
-            <div style="position: absolute; top: 25%; left: -28px; transform: translateY(-50%) rotate(-90deg); transform-origin: center center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap;">Multi-issuer platform</div>
-            <div style="position: absolute; top: 75%; left: -28px; transform: translateY(-50%) rotate(-90deg); transform-origin: center center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap;">Single-issuer product</div>
+            <!-- Rotated Y-axis labels (editorial FT-style, OUTSIDE the chart grid on the left edge) -->
+            <div style="position: absolute; top: 25%; left: -82px; transform: translateY(-50%) rotate(-90deg); transform-origin: center center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap;">Multi-issuer platform</div>
+            <div style="position: absolute; top: 75%; left: -82px; transform: translateY(-50%) rotate(-90deg); transform-origin: center center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap;">Single-issuer product</div>
 
             <!-- Quadrant labels -->
             <div style="position: absolute; top: 10px; left: 14px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-hi);">The open slot</div>
@@ -968,28 +968,28 @@
           <!-- Tailwind 1 -->
           <div style="margin-bottom: 20px;">
             <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px;">01 · ASIC REP 820 · Nov 2025</div>
-            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">Mid-tier AU credit managers just hit a distribution ceiling.</p>
-            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">Retail-disclosure bar raised overnight. In-house retail build = 18 months + A$1–2M per manager. 8–10 managers ($100M–$2B AUM) need compliant rails they can't absorb alone.</p>
+            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">The compliance uplift just became cheaper to rent than to build.</p>
+            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">18 months + A$1–2M per manager to build retail in-house. 4–6 months and a revenue share on Strata. 8–10 mid-tier managers now need to decide.</p>
           </div>
 
           <!-- Tailwind 2 -->
           <div style="margin-bottom: 20px;">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px;">02 · BlackRock &middot; Apollo &middot; Securitize · 2024–25</div>
-            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">Tokenised private credit crossed the institutional threshold.</p>
-            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">BUIDL &gt;US$2.5B · Apollo ACRED live · Hamilton Lane SCOPE via Securitize · Securitize Cantor-SPAC Oct 2025. Institutional legitimacy risk for the category has cleared.</p>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px;">02 · BlackRock &middot; Apollo &middot; Hamilton Lane · 2024–25</div>
+            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">Apollo, BlackRock, and Hamilton Lane just did the category de-risking for us.</p>
+            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">BUIDL is US$2.5B+ of tokenised credit on-chain and growing. The biggest allocators in the world have cleared the institutional-legitimacy risk before we raised a dollar.</p>
           </div>
 
           <!-- Tailwind 3 -->
           <div style="margin-bottom: 22px;">
             <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px;">03 · AU/NZ retail · 2025–26</div>
-            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">Retail is ready — and underserved.</p>
-            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">Term deposits at ~4% &middot; retail PC at 6.5–8%. Sharesies 930K members. Squirrel has a waiting list. Demand proven, supply absent, distribution rails mature.</p>
+            <p style="font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-text); margin: 0 0 6px;">NZ retail already tried to buy — Squirrel has a waiting list, not a funnel.</p>
+            <p style="font-size: 12px; color: var(--ink-dim); line-height: 1.55; margin: 0;">Term deposits at 4%. Retail PC at 6.5–8%. Sharesies 930K members. The demand is queued up; no one has built the supply.</p>
           </div>
 
           <!-- Payoff -->
           <div style="padding: 14px 16px; border: 1px solid var(--gold);">
             <p style="font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--gold-hi); line-height: 1.45; margin: 0; letter-spacing: -0.01em;">
-              The intersection is empty because building it requires all three to be true at once — and they only just are.
+              Three tailwinds. One local regulatory wrapper. One window. <em style="font-weight: 500;">We're already inside.</em>
             </p>
           </div>
         </div>
