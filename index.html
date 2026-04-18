@@ -868,76 +868,82 @@
       <h2>AU/NZ private credit is a <strong>~A$200B market</strong> with <em>no retail-first distribution infrastructure.</em> Every global comp proves this category is winner-takes-most.</h2>
       <p class="sub" style="margin-top: 12px;">iCapital is worth US$7.5B. Moonfare is €3.8B AUM. Securitize raised at category-leading multiples. AU/NZ has the regulatory moat, the mid-tier credit managers, and the retail demand — but no built rails. We built them.</p>
       <!-- Positioning map: Retail/Wholesale × Single/Multi-issuer -->
-      <div style="margin-top: 32px; display: grid; grid-template-columns: 110px 1fr; gap: 0;">
-        <!-- Y-axis labels (left column) -->
-        <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; padding: 12px 16px 42px 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);">
-          <span>Multi-issuer</span>
-          <span style="color: var(--ink-mute);">Single-issuer</span>
-        </div>
-
-        <!-- Chart column -->
+      <div style="margin-top: 32px; display: grid; grid-template-columns: 1.65fr 1fr; gap: 48px; align-items: start;">
+        <!-- Chart -->
         <div>
-          <!-- Chart area -->
-          <div style="position: relative; height: 400px; border: 1px solid var(--ink-rule);">
+          <!-- Chart area with rotated Y-axis labels on the edge -->
+          <div style="position: relative; height: 420px; border: 1px solid var(--ink-rule);">
             <!-- Quadrant dividers -->
             <div style="position: absolute; top: 50%; left: 0; right: 0; border-top: 1px dashed var(--ink-rule);"></div>
             <div style="position: absolute; top: 0; bottom: 0; left: 50%; border-left: 1px dashed var(--ink-rule);"></div>
 
+            <!-- Rotated Y-axis labels (editorial FT-style) -->
+            <div style="position: absolute; top: 25%; left: -10px; transform: translateY(-50%) rotate(-90deg); transform-origin: left center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap; padding-left: 8px;">Multi-issuer platform</div>
+            <div style="position: absolute; top: 75%; left: -10px; transform: translateY(-50%) rotate(-90deg); transform-origin: left center; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap; padding-left: 8px;">Single-issuer product</div>
+
             <!-- Quadrant labels -->
-            <div style="position: absolute; top: 10px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-hi);">The open slot</div>
-            <div style="position: absolute; top: 10px; right: 12px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); text-align: right;">Wholesale / HNW cluster</div>
-            <div style="position: absolute; bottom: 10px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);">Single-product retail</div>
+            <div style="position: absolute; top: 10px; left: 14px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-hi);">The open slot</div>
+            <div style="position: absolute; top: 10px; right: 14px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); text-align: right;">Wholesale / HNW cluster</div>
+            <div style="position: absolute; bottom: 10px; left: 14px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);">Single-product retail</div>
 
             <!-- Strata (emphasized) - top-left quadrant -->
-            <div style="position: absolute; top: 30%; left: 22%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 11px; z-index: 2;">
+            <div style="position: absolute; top: 30%; left: 24%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 11px; z-index: 2;">
               <span style="width: 16px; height: 16px; border-radius: 999px; background: var(--gold); flex-shrink: 0;"></span>
               <span style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; color: var(--gold-hi); letter-spacing: -0.01em; white-space: nowrap;">Strata</span>
             </div>
 
+            <!-- Top-right cluster: wholesale/HNW multi-issuer -->
             <!-- iCapital -->
             <div style="position: absolute; top: 14%; left: 58%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
               <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
               <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">iCapital</span>
             </div>
 
+            <!-- CAIS -->
+            <div style="position: absolute; top: 22%; left: 68%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
+              <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
+              <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">CAIS</span>
+            </div>
+
             <!-- Moonfare -->
-            <div style="position: absolute; top: 22%; left: 72%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
+            <div style="position: absolute; top: 30%; left: 60%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
               <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
               <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Moonfare</span>
             </div>
 
             <!-- Percent -->
-            <div style="position: absolute; top: 30%; left: 60%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
+            <div style="position: absolute; top: 38%; left: 70%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
               <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
               <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Percent</span>
             </div>
 
-            <!-- Willow Wealth -->
-            <div style="position: absolute; top: 38%; left: 68%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
+            <!-- Willow -->
+            <div style="position: absolute; top: 44%; left: 60%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
               <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
               <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Willow</span>
             </div>
 
             <!-- Reach -->
-            <div style="position: absolute; top: 18%; left: 84%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px; flex-direction: row-reverse;">
+            <div style="position: absolute; top: 18%; left: 82%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px; flex-direction: row-reverse;">
               <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
               <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Reach</span>
             </div>
 
-            <!-- Stropro -->
-            <div style="position: absolute; top: 42%; left: 82%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px; flex-direction: row-reverse;">
+            <!-- Bottom-left cluster: single-product retail -->
+            <!-- Metrics -->
+            <div style="position: absolute; top: 64%; left: 38%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
               <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
-              <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Stropro</span>
+              <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Metrics</span>
             </div>
 
-            <!-- Metrics -->
-            <div style="position: absolute; top: 65%; left: 34%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
+            <!-- Arrived -->
+            <div style="position: absolute; top: 72%; left: 20%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
               <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
-              <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Metrics (ASX:MXT)</span>
+              <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Arrived</span>
             </div>
 
             <!-- Squirrel -->
-            <div style="position: absolute; top: 78%; left: 18%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
+            <div style="position: absolute; top: 82%; left: 32%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px;">
               <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--ink-dim); flex-shrink: 0;"></span>
               <span style="font-size: 11.5px; color: var(--ink-dim); white-space: nowrap;">Squirrel</span>
             </div>
@@ -945,16 +951,35 @@
 
           <!-- X-axis labels -->
           <div style="display: flex; justify-content: space-between; padding: 12px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);">
-            <span>Retail</span>
-            <span>Wholesale / HNW</span>
+            <span>Retail · sub-A$1K tickets</span>
+            <span>Wholesale · HNW · adviser-gated</span>
+          </div>
+
+          <!-- Definitions line -->
+          <p style="font-size: 12px; color: var(--ink-mute); line-height: 1.55; margin: 14px 0 0; max-width: 640px;">
+            <em>Retail</em> = sub-A$1K tickets, no advisor gate. <em>Multi-issuer platform</em> = rails carrying multiple funds' products, not a single manager's own book.
+          </p>
+        </div>
+
+        <!-- Sidebar -->
+        <div style="border-left: 1px solid var(--ink-rule); padding: 4px 0 0 28px;">
+          <div class="note" style="color: var(--gold-hi); margin-bottom: 14px;">What this means for Strata</div>
+          <p style="font-family: 'Fraunces', serif; font-size: 17px; font-weight: 400; line-height: 1.35; letter-spacing: -0.015em; color: var(--ink-text); margin: 0 0 14px;">
+            The top-left quadrant is structurally empty — in AU/NZ and globally.
+          </p>
+          <p style="font-size: 13px; color: var(--ink-dim); line-height: 1.6; margin: 0 0 16px;">
+            Every comp clusters in wholesale/HNW territory (iCapital, CAIS, Moonfare, Percent, Willow, Reach) or sits alone as a single-product issuer (Metrics, Arrived, Squirrel).
+          </p>
+          <p style="font-size: 13px; color: var(--ink-dim); line-height: 1.6; margin: 0 0 16px;">
+            The retail-first, multi-issuer quadrant requires a regulated local wrapper and multi-manager trust architecture. Both are hard to build, slow to licence, and rarely attempted by either end of the market.
+          </p>
+          <div style="padding: 14px 16px; border: 1px solid var(--gold); margin-top: 18px;">
+            <p style="font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--gold-hi); line-height: 1.45; margin: 0; letter-spacing: -0.01em;">
+              Strata is positioned at the intersection no one is building toward.
+            </p>
           </div>
         </div>
       </div>
-
-      <!-- Payoff line -->
-      <p style="font-family: 'Fraunces', serif; font-size: 15px; font-style: italic; color: var(--ink-dim); letter-spacing: -0.01em; margin: 22px 0 0; max-width: 900px;">
-        Every comp clusters in wholesale/HNW territory or sits alone as a single-product issuer. The retail-first, multi-issuer quadrant is <em style="color: var(--gold-hi); font-weight: 500;">structurally empty</em> — in AU/NZ and globally.
-      </p>
       <div class="rule-gold"></div>
       <p class="note">ASIC REP 820 · ICAPITAL US$7.5B (JUL 2025) · MOONFARE €3.8B · SECURITIZE $47M STRATEGIC · GLOBAL PC US$3T → US$5T BY 2029 (MORGAN STANLEY)</p>
     </div>
